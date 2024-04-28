@@ -1,9 +1,10 @@
 header {
+    background-color: white;
+    max-width: 100vw;
+    height: 100px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size: large;
-    max-width: 100vw;
-    height: 150px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     display: flex;
@@ -48,6 +49,43 @@ header {
 .links-direita .btn_cadastrar {
     background-color: red;
     color: white;
-    padding: 20px 30px;
+    padding: 15px 25px;
     border-radius: 5px;
+}
+
+
+/* Media queries para ajustar o layout em telas menores */
+
+/* Para telas menores que 768px */
+@media screen and (max-width: 768px) {  
+    .logotipo {
+        margin-left: 15px; /* Reduz a margem esquerda do logotipo */
+        width: 100px;
+        background: url('../../assets/img/logo1-responsivo.png') no-repeat;
+        border-radius: 50px;
+    }
+
+    .logotipo img {
+        width: 0%;
+    }
+
+    .links-centro, .links-direita {
+        display: none; /* Oculta os links */
+    }
+}
+
+/* Para telas menores que 480px */
+@media screen and (max-width: 480px) {
+    header {
+        height: 80px; /* Reduz ainda mais a altura do cabeçalho */
+    }
+  
+    .logotipo {
+        height: 60px; /* Reduz a altura do logotipo */
+        margin-left: 10px; /* Reduz ainda mais a margem esquerda do logotipo */
+    }
+
+    .links-esquerda {
+        width: 40%; /* Ajusta a largura dos links à esquerda */
+    }
 }
