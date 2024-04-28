@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AcomodacaoService } from '../acomodacao.service';
 
 @Component({
   selector: 'app-lista-acomodacoes',
@@ -6,9 +7,11 @@ import { Component, Input } from '@angular/core';
   styleUrl: './lista-acomodacoes.component.css'
 })
 export class ListaAcomodacoesComponent {
-  @Input() imageUrl?: string;
-  @Input() text1?: string;
-  @Input() text2?: string;
-  @Input() text3?: string;
-  @Input() text4?: string;
+
+  listaAcomodacoes: any[] = [];
+
+  constructor(private acomodacaoService: AcomodacaoService) {
+    this.listaAcomodacoes = this.acomodacaoService.listar();
+  }
+
 }

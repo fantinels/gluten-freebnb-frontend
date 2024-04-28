@@ -1,9 +1,14 @@
-<div class="card">
-    <img [src]="imageUrl" alt="Imagem do Item">
-    <div class="card-body">
-        <p class="titulo">{{ text1 }}</p>
-        <p>{{ text2 }}</p>
-        <p>{{ text3 }}</p>
-        <p class="preco">{{ text4 }}</p>
+
+<h1 *ngIf="listaAcomodacoes.length == 0"> Nenhuma acomodação cadastrada!</h1>
+
+<div class="container">
+    <div class="card" *ngFor="let acomodacao of listaAcomodacoes">
+        <img src="{{acomodacao.imagem}}" alt="Imagem do Item">
+        <div class="card-body">
+            <p class="titulo">{{acomodacao.nome}}</p>
+            <p>{{acomodacao.especificacao}}</p>
+            <p>{{acomodacao.periodo}}</p>
+            <p class="preco">{{acomodacao.preco}}</p>
+        </div>
     </div>
 </div>
