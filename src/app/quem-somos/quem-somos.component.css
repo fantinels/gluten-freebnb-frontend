@@ -1,0 +1,58 @@
+h2, 
+h3 {
+    text-align: center;
+}
+
+h2 {
+    margin-top: 20px;
+    font-family: "Prompt", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: xx-large;
+}
+
+h3 {
+    font-family: "Prompt", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 30px;
+}
+
+.parte1,
+.parte2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.imagem-cima,
+.imagem-baixo {
+    width: 300px;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.texto-cima,
+.texto-baixo {
+    width: 50%;
+    text-align: justify;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 2rem;
+    font-size: 21px;
+}
+
+span {
+    font-weight: bold;
+}
