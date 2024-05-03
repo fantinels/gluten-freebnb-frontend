@@ -11,7 +11,13 @@ export class ListaAcomodacoesComponent {
   listaAcomodacoes: any[] = [];
 
   constructor(private acomodacaoService: AcomodacaoService) {
-    this.listaAcomodacoes = this.acomodacaoService.listar();
+    // this.listaAcomodacoes = this.acomodacaoService.listar();
+    
+    this.acomodacaoService.listar().subscribe(
+      (acomodacao) => {
+        this.listaAcomodacoes = acomodacao;
+      }
+    );
   }
 
 }

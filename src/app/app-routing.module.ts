@@ -5,6 +5,7 @@ import { ListaAcomodacoesComponent } from './lista-acomodacoes/lista-acomodacoes
 
 const routes: Routes = [
   { path: 'home', component: ListaAcomodacoesComponent },
+  { path: 'hospedagem/:id', component: ListaAcomodacoesComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'quem-somos', component: QuemSomosComponent }
 ];
