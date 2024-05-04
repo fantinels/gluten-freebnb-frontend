@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const BASE_API = "http://localhost:3001/api/hospedagem";
+// const BASE_API = "https://gluten-freebnb-backend.onrender.com/api/hospedagem";
 
 // somente utilizado para POST e PUT:
 const httpOptions = {
