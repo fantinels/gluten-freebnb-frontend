@@ -7,6 +7,9 @@ import { HeaderComponent } from './header/header.component';
 import { ListaAcomodacoesComponent } from './lista-acomodacoes/lista-acomodacoes.component';
 import { QuemSomosComponent } from './quem-somos/quem-somos.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -18,9 +21,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressBarModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

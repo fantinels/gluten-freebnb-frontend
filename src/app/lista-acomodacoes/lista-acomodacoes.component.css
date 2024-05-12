@@ -1,3 +1,14 @@
+
+.sem-acomodacao {
+    margin: 50px 0 30px 0;
+    text-align: center;
+}
+
+.barra-progresso{
+    width: 80%;
+    margin: auto;
+}
+
 .container {
     display: flex;
     justify-content: center;

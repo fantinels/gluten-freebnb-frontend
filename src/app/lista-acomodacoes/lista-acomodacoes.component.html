@@ -1,5 +1,6 @@
 
-<h1 *ngIf="listaAcomodacoes.length == 0"> Nenhuma acomodação cadastrada!</h1>
+<h1 class="sem-acomodacao" *ngIf="listaAcomodacoes.length == 0"> Procurando acomodações...</h1>
+<mat-progress-bar class="barra-progresso" *ngIf="listaAcomodacoes.length == 0" mode="indeterminate"></mat-progress-bar>
 
 <div class="container">
     <div class="card" *ngFor="let acomodacao of listaAcomodacoes">
@@ -10,7 +11,6 @@
             <p>{{acomodacao.periodo}}</p>
             <div class="rodape-card">
                 <p class="preco">{{acomodacao.valor}}</p>
-                <!-- <a class="btn_ver_mais">ver mais</a> -->
                 <a routerLink="/hospedagem/{{acomodacao.id}}" class="btn_ver_mais">ver mais</a>
             </div>
         </div>
