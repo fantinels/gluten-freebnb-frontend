@@ -10,13 +10,16 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { AcomodacaoService } from './acomodacao.service';
+import { FotosHospedagemComponent } from './fotos-hospedagem/fotos-hospedagem.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ListaAcomodacoesComponent,
-    QuemSomosComponent
+    QuemSomosComponent,
+    FotosHospedagemComponent
   ],
   imports: [
     BrowserModule,

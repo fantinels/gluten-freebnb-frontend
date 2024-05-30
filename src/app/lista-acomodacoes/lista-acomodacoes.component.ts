@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AcomodacaoService } from '../acomodacao.service';
 
 @Component({
@@ -6,6 +6,7 @@ import { AcomodacaoService } from '../acomodacao.service';
   templateUrl: './lista-acomodacoes.component.html',
   styleUrl: './lista-acomodacoes.component.css'
 })
+
 export class ListaAcomodacoesComponent {
 
   listaAcomodacoes: any[] = [];
@@ -16,8 +17,10 @@ export class ListaAcomodacoesComponent {
     this.acomodacaoService.listar().subscribe(
       (acomodacao) => {
         this.listaAcomodacoes = acomodacao;
+        // console.log(this.listaAcomodacoes)
+        // console.log(acomodacao[3].foto)
       }
     );
-  }
-
+  } 
+  
 }

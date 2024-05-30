@@ -16,9 +16,13 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AcomodacaoService {
-
+  
+  // private apiUrl = "http://localhost:1337/api";
+  
+  
   // parâmetro do constructor: private http: HttpClient
   constructor(private http: HttpClient) { }
+  
 
   // listaAcomodacoes: Acomodacao[] = [
   //   { id: 1, nome: "Porto Alegre, RS", especificacao: "Vista para o Guaíba", periodo: "20 - 30 de jun.", valor: "R$ 250,00 noite", foto: "../../assets/img/logo1.PNG"},
@@ -45,6 +49,9 @@ export class AcomodacaoService {
     return this.http.get<Acomodacao[]>(BASE_API);
   }
 
+  // getAcomodacoes(): Observable<any> {
+  //   return this.http.get(`${this.apiUrl}/hospedagems`);
+  // }
 
   // buscarPorId(id: number): Observable<Acomodacao> {
   //   return this.id;

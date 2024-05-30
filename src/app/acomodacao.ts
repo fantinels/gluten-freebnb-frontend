@@ -13,7 +13,7 @@ export class Acomodacao {
     cidade?: string;
     uf?: string;
     descricao?: string;
-    foto?: string;
+    foto?: string[];
     tipo_acomodacao?: string;
     valor?: string;
     qt_hospede?: number;
