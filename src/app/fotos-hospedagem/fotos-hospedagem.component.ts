@@ -11,6 +11,8 @@ export class FotosHospedagemComponent {
 
   fotosTratadas: string[] = [];
 
+  indiceImagemAtual: number = 0;
+
   ngOnInit() {
     if(this.fotos.indexOf('{') < 0) {
       this.fotosTratadas.push(this.fotos);
@@ -22,4 +24,11 @@ export class FotosHospedagemComponent {
     }
   }
 
+  proximaImagem() {
+    this.indiceImagemAtual = (this.indiceImagemAtual + 1) % this.fotosTratadas.length;
+  }
+
+  imagemAnterior() {
+    this.indiceImagemAtual = (this.indiceImagemAtual - 1 + this.fotosTratadas.length) % this.fotosTratadas.length;
+  }
 }

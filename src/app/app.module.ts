@@ -13,6 +13,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { AcomodacaoService } from './acomodacao.service';
 import { FotosHospedagemComponent } from './fotos-hospedagem/fotos-hospedagem.component';
 
+import { MatSliderModule } from '@angular/material/slider';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import { FotosHospedagemComponent } from './fotos-hospedagem/fotos-hospedagem.co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSliderModule
   ],
   providers: [
     provideAnimationsAsync()
