@@ -1,4 +1,7 @@
 
 <img src="{{fotosTratadas[indiceImagemAtual]}}" alt="imagem">
-<i class="material-icons" (click)="imagemAnterior()">chevron_left</i>
-<i class="material-icons" (click)="proximaImagem()">chevron_right</i>
+<div *ngIf="fotosTratadas.length > 1">
+    <i class="material-icons" (click)="imagemAnterior()">chevron_left</i>
+    <i class="material-icons" (click)="proximaImagem()">chevron_right</i>
+</div>
+    

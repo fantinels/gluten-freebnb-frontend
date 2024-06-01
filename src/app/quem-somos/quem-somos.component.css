@@ -18,7 +18,7 @@ h3 {
 }
 
 .container {
-    width: 80vw;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     margin-top: 40px;
@@ -32,7 +32,9 @@ h3 {
     justify-content: center;
     align-items: center;
     gap: 50px;
+    margin-bottom: 50px;
 }
+
 
 .imagem-cima,
 .imagem-baixo {
@@ -45,11 +47,11 @@ h3 {
 .texto-baixo {
     width: 50%;
     text-align: justify;
-    font-family: "Josefin Sans", sans-serif;
+    /* font-family: "Josefin Sans", sans-serif; */
     font-optical-sizing: auto;
     font-weight: 400;
-    font-style: italic;
-    line-height: 2rem;
+    /* font-style: italic; */
+    line-height: 2.5rem;
     font-size: 21px;
 }
 
