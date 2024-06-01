@@ -14,6 +14,12 @@ import { AcomodacaoService } from './acomodacao.service';
 import { FotosHospedagemComponent } from './fotos-hospedagem/fotos-hospedagem.component';
 
 import { MatSliderModule } from '@angular/material/slider';
+import { CadastroHospedagemComponent } from './cadastro-hospedagem/cadastro-hospedagem.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatStepperModule } from '@angular/material/stepper';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -21,14 +27,21 @@ import { MatSliderModule } from '@angular/material/slider';
     HeaderComponent,
     ListaAcomodacoesComponent,
     QuemSomosComponent,
-    FotosHospedagemComponent
+    FotosHospedagemComponent,
+    CadastroHospedagemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MatProgressBarModule,
-    MatSliderModule
+    MatSliderModule,
+    MatButtonModule,
+    MatStepperModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [
     provideAnimationsAsync()

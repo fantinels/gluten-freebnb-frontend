@@ -1,0 +1,115 @@
+
+  <mat-stepper linear #stepper>
+    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Preencha seus dados</ng-template>
+        <mat-form-field>
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="firstCtrl" placeholder="Nome completo" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Próximo</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+    <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Endereço da hospedagem</ng-template>
+            <form [formGroup]="secondFormGroup" class="example-form">
+            <p>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Endereço</mat-label>
+                    <input formControlName="secondCtrl" matInput placeholder="Ex. Rua Exemplo" required>
+                </mat-form-field>
+            </p>
+            <table class="example-full-width" cellspacing="0"><tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Número</mat-label>
+                        <input formControlName="secondCtrl" matInput placeholder="Ex. 10" required>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Complemento</mat-label>
+                        <input matInput placeholder="Ex. apto 101 bloco A">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Bairro</mat-label>
+                        <input formControlName="secondCtrl" matInput placeholder="Ex. Harmonia" required>
+                    </mat-form-field>
+                </td>
+            </tr></table>            
+            <table class="example-full-width" cellspacing="0"><tr>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Cidade</mat-label>
+                        <input formControlName="secondCtrl" matInput placeholder="Ex. Porto Alegre" required>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Estado</mat-label>
+                        <input formControlName="secondCtrl" matInput placeholder="Ex. RS" required>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>CEP</mat-label>
+                        <input formControlName="secondCtrl" matInput #postalCode maxlength="8" placeholder="Ex. 91340140" required>
+                        <mat-hint align="end">{{postalCode.value.length}} / 8</mat-hint>
+                    </mat-form-field>
+                </td>
+            </tr></table>
+          </form>      
+          <div>
+          <button mat-button matStepperPrevious>Voltar</button>
+          <button mat-button matStepperNext>Próximo</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup" [editable]="isEditable">
+        <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>Descrição e fotos da hospedagem</ng-template>
+            <p>
+                <mat-form-field>
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="thirdFormGroup" #nomeMax maxlength="18" placeholder="Nome da hospedagem" required>
+                    <mat-hint align="end">{{nomeMax.value.length}} / 18</mat-hint>
+                </mat-form-field>
+            </p>
+            <mat-form-field class="area-descricao">
+                <mat-label>Descrição da hospedagem</mat-label>
+                <textarea matInput formControlName="thirdCtrl" rows="5" placeholder="Descreva com clareza todos os detalhes da hospedagem..." required></textarea>
+            </mat-form-field>
+            <p>
+                <mat-form-field class="area-especificacao">
+                    <mat-label>Especificação</mat-label>
+                    <input matInput formControlName="thirdCtrl" #especMax maxlength="20" placeholder="Detalhe mais importante da hospedagem" required>
+                    <mat-hint align="end">{{especMax.value.length}} / 20</mat-hint>
+                </mat-form-field>
+            </p>
+            <p>
+                <input type="file" multiple>
+                <br>
+                <button mat-button color="primary">Fotos</button>
+            </p>
+            <div>
+                <button mat-button matStepperPrevious>Voltar</button>
+                <button mat-button matStepperNext>Próximo</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Verificação</ng-template>
+      <p>Você terminou o cadastro da sua hospedagem!</p>
+      <p>Você pode voltar para revisar ou salvar se estiver tudo certo.</p>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button color="primary">Salvar</button>
+        <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+      </div>
+    </mat-step>
+  </mat-stepper>
