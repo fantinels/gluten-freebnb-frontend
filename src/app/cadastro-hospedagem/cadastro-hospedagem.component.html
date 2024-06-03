@@ -1,17 +1,5 @@
 
   <mat-stepper linear #stepper>
-    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
-      <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Preencha seus dados</ng-template>
-        <mat-form-field>
-          <mat-label>Nome</mat-label>
-          <input matInput formControlName="firstCtrl" placeholder="Nome completo" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Próximo</button>
-        </div>
-      </form>
-    </mat-step>
     <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
     <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Endereço da hospedagem</ng-template>
@@ -65,7 +53,7 @@
             </tr></table>
           </form>      
           <div>
-          <button mat-button matStepperPrevious>Voltar</button>
+          <!-- <button mat-button matStepperPrevious routerLink="cadastro">Voltar</button> -->
           <button mat-button matStepperNext>Próximo</button>
         </div>
       </form>
@@ -108,7 +96,7 @@
       <p>Você pode voltar para revisar ou salvar se estiver tudo certo.</p>
       <div>
         <button mat-button matStepperPrevious>Voltar</button>
-        <button mat-button color="primary">Salvar</button>
+        <!-- <button mat-button color="primary" (click)="salvar()">Salvar</button> -->
         <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
       </div>
     </mat-step>
