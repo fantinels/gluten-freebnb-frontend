@@ -15,24 +15,12 @@
                 <mat-hint align="end">{{cpfCode.value.length}} / 11</mat-hint>
               </mat-form-field>
             </td>
-            <td>
-              <mat-form-field class="example-full-width">
-                <mat-label>Data Nascimento</mat-label>
-                <input matInput type="date" formControlName="dt_nascimento" placeholder="Somente números" required>
-              </mat-form-field>
-            </td>
           </tr></table>
           <mat-form-field class="example-full-width">
             <mat-label>E-mail</mat-label>
             <input matInput formControlName="email" placeholder="email@email..." required>
           </mat-form-field>
           <table class="example-full-width" cellspacing="0"><tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <mat-label>Telefone</mat-label>
-              <input matInput formControlName="tel" placeholder="Somente números" required>
-            </mat-form-field>
-          </td>
           <td>
             <mat-form-field class="example-full-width">
               <mat-label>Senha</mat-label>
@@ -42,18 +30,6 @@
           </td>
           </tr></table>
           <table class="example-full-width" cellspacing="0"><tr>
-            <td>
-              <mat-form-field class="example-full-width">
-                    <mat-label>Cidade</mat-label>
-                    <input formControlName="cidade" matInput placeholder="Ex. Porto Alegre" required>
-                </mat-form-field>
-              </td>
-            <td>
-              <mat-form-field class="example-full-width">
-                    <mat-label>Estado</mat-label>
-                    <input formControlName="uf" matInput placeholder="Ex. RS" required>
-                </mat-form-field>
-              </td>
             </tr></table>
             <mat-form-field>
               <mat-label>Tipo de cadastro</mat-label>
@@ -67,7 +43,7 @@
               <!-- Se o tipo de cadastro for "Hóspede", exibe o botão "Salvar", caso contrário, exibe o botão "Próximo" -->
               <button mat-button *ngIf="isTipoHospede(); else proximoButton" (click)="cadastrarUsuario()">Salvar</button>
               <ng-template #proximoButton>
-                <button mat-button matStepperNext routerLink="cadastro-hospedagem" (click)="cadastrarUsuario()">Próximo</button>
+                <button mat-button matStepperNext routerLink="cadastro-hospedagem" (click)="cadastrarUsuario()" [disabled]="!cadastroForm.valid">Próximo</button>
               </ng-template>
             </div>
           </form>

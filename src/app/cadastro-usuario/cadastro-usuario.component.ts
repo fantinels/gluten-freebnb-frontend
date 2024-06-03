@@ -30,10 +30,6 @@ export class CadastroUsuarioComponent implements OnInit {
     this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required]],
       tipo: ['', [Validators.required]],
-      tel: ['', [Validators.required]],
-      cidade: ['', [Validators.required]],
-      uf: ['', [Validators.required]],
-      dt_nascimento: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required, Validators.maxLength(11)]],
       senha: ['', [Validators.required, Validators.minLength(6)]]
@@ -51,7 +47,6 @@ export class CadastroUsuarioComponent implements OnInit {
         )
         .subscribe(response => {
           console.log('Usuário cadastrado com sucesso', response);
-          // Aqui você pode fazer algo após o sucesso do cadastro, como redirecionar o usuário para a próxima etapa
         });
     }
   }
