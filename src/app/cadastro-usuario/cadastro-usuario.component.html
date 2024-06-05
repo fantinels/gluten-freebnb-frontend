@@ -1,51 +1,57 @@
 
-  <mat-stepper linear #stepper>
-    <mat-step [editable]="isEditable">
-      <form [formGroup]="cadastroForm" class="example-form">
-        <ng-template matStepLabel>Preencha seus dados</ng-template>
+<mat-stepper linear #stepper>
+  <mat-step [editable]="!isEditable">
+    <form [formGroup]="cadastroForm" class="example-form">
+      <ng-template matStepLabel>Preencha seus dados</ng-template>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" placeholder="Nome completo" required>
+      </mat-form-field>
+      <table class="example-full-width" cellspacing="0"><tr>
+        <td>
           <mat-form-field class="example-full-width">
-            <mat-label>Nome</mat-label>
-            <input matInput formControlName="nome" placeholder="Nome completo" required>
+            <mat-label>CPF</mat-label>
+            <input matInput #cpfCode maxlength="11" formControlName="cpf" placeholder="Somente os números" required>
+            <mat-hint align="end">{{cpfCode.value.length}} / 11</mat-hint>
           </mat-form-field>
-          <table class="example-full-width" cellspacing="0"><tr>
-            <td>
-              <mat-form-field class="example-full-width">
-                <mat-label>CPF</mat-label>
-                <input matInput #cpfCode maxlength="11" formControlName="cpf" placeholder="Somente os números" required>
-                <mat-hint align="end">{{cpfCode.value.length}} / 11</mat-hint>
-              </mat-form-field>
-            </td>
-          </tr></table>
-          <mat-form-field class="example-full-width">
-            <mat-label>E-mail</mat-label>
-            <input matInput formControlName="email" placeholder="email@email..." required>
-          </mat-form-field>
-          <table class="example-full-width" cellspacing="0"><tr>
-          <td>
-            <mat-form-field class="example-full-width">
-              <mat-label>Senha</mat-label>
-              <input matInput #passCode maxlength="6" formControlName="senha" placeholder="Mínimo 6 caracteres" required>
-              <mat-hint align="end">{{passCode.value.length}} / 6</mat-hint>
-            </mat-form-field>
-          </td>
-          </tr></table>
-          <table class="example-full-width" cellspacing="0"><tr>
-            </tr></table>
-            <mat-form-field>
-              <mat-label>Tipo de cadastro</mat-label>
-              <mat-select formControlName="tipo">
-                <mat-option *ngFor="let tipo of tipos" [value]="tipo.value">
-                  {{tipo.label}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <div>
-              <!-- Se o tipo de cadastro for "Hóspede", exibe o botão "Salvar", caso contrário, exibe o botão "Próximo" -->
-              <button mat-button *ngIf="isTipoHospede(); else proximoButton" (click)="cadastrarUsuario()">Salvar</button>
-              <ng-template #proximoButton>
-                <button mat-button matStepperNext routerLink="cadastro-hospedagem" (click)="cadastrarUsuario()" [disabled]="!cadastroForm.valid">Próximo</button>
-              </ng-template>
-            </div>
-          </form>
-        </mat-step>
-      </mat-stepper>
+        </td>
+      </tr></table>
+      <mat-form-field class="example-full-width">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" placeholder="email@email..." required>
+      </mat-form-field>
+      <table class="example-full-width" cellspacing="0"><tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Senha</mat-label>
+          <input matInput #passCode maxlength="6" formControlName="senha" placeholder="Mínimo 6 caracteres" required>
+          <mat-hint align="end">{{passCode.value.length}} / 6</mat-hint>
+        </mat-form-field>
+      </td>
+      </tr></table>
+      <mat-form-field>
+        <mat-label>Tipo de cadastro</mat-label>
+        <mat-select formControlName="tipo">
+          <mat-option *ngFor="let tipo of tipos" [value]="tipo.value">
+            {{tipo.label}}
+          </mat-option>
+      </mat-select>
+      </mat-form-field>
+      <div>
+        <!-- Se o tipo de cadastro for "Hóspede", exibe o botão "Salvar", caso contrário, exibe o botão "Próximo" -->
+        <button mat-button matStepperNext *ngIf="isTipoHospede(); else proximoButton" (click)="cadastrarUsuario()">Salvar</button>
+        <ng-template #proximoButton>
+          <button mat-button matStepperNext routerLink="cadastro-hospedagem" (click)="cadastrarUsuario()" [disabled]="!cadastroForm.valid">Próximo</button>
+        </ng-template>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Verificação</ng-template>
+    <p>Você terminou seu cadastro!</p>
+    <br>
+    <div>
+      <button routerLink="/home" mat-button matStepperPrevious>Página inicial</button>
+    </div>
+  </mat-step>
+</mat-stepper>

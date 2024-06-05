@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from '../usuario.service';
 import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
-
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -18,7 +16,7 @@ export class CadastroUsuarioComponent implements OnInit {
     { value: 1, label: 'Hóspede' },
     { value: 2, label: 'Anfitrião' }
   ];
-  
+
   cadastroForm!: FormGroup;
 
   constructor(
@@ -29,10 +27,10 @@ export class CadastroUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required]],
-      tipo: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required, Validators.maxLength(11)]],
-      senha: ['', [Validators.required, Validators.minLength(6)]]
+      email: ['', [Validators.required, Validators.email]],
+      senha: ['', [Validators.required, Validators.minLength(6)]],
+      tipo: ['', [Validators.required]]
     });
   }
 
