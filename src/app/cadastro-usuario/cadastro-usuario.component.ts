@@ -47,6 +47,8 @@ export class CadastroUsuarioComponent implements OnInit {
         )
         .subscribe(response => {
           console.log('Usuário cadastrado com sucesso', response);
+          const userId = response.id; // Pega ID do usuário recém cadastrado
+          console.log('Novo ID do usuário:', userId);
         });
     }
   }

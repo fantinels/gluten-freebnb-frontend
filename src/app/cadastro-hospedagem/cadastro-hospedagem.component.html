@@ -1,20 +1,20 @@
 
   <mat-stepper linear #stepper>
-    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-    <form [formGroup]="secondFormGroup">
+    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+    <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Endereço da hospedagem</ng-template>
-            <form [formGroup]="secondFormGroup" class="example-form">
+            <form [formGroup]="firstFormGroup" class="example-form">
             <p>
                 <mat-form-field class="example-full-width">
                     <mat-label>Endereço</mat-label>
-                    <input formControlName="secondCtrl" matInput placeholder="Ex. Rua Exemplo" required>
+                    <input formControlName="firstCtrl" matInput placeholder="Ex. Rua Exemplo" required>
                 </mat-form-field>
             </p>
             <table class="example-full-width" cellspacing="0"><tr>
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Número</mat-label>
-                        <input formControlName="secondCtrl" matInput placeholder="Ex. 10" required>
+                        <input formControlName="firstCtrl" matInput placeholder="Ex. 10" required>
                     </mat-form-field>
                 </td>
                 <td>
@@ -26,7 +26,7 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Bairro</mat-label>
-                        <input formControlName="secondCtrl" matInput placeholder="Ex. Harmonia" required>
+                        <input formControlName="firstCtrl" matInput placeholder="Ex. Harmonia" required>
                     </mat-form-field>
                 </td>
             </tr></table>            
@@ -34,19 +34,19 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Cidade</mat-label>
-                        <input formControlName="secondCtrl" matInput placeholder="Ex. Porto Alegre" required>
+                        <input formControlName="firstCtrl" matInput placeholder="Ex. Porto Alegre" required>
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Estado</mat-label>
-                        <input formControlName="secondCtrl" matInput placeholder="Ex. RS" required>
+                        <input formControlName="firstCtrl" matInput placeholder="Ex. RS" required>
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>CEP</mat-label>
-                        <input formControlName="secondCtrl" matInput #postalCode maxlength="8" placeholder="Ex. 91340140" required>
+                        <input formControlName="firstCtrl" matInput #postalCode maxlength="8" placeholder="Ex. 91340140" required>
                         <mat-hint align="end">{{postalCode.value.length}} / 8</mat-hint>
                     </mat-form-field>
                 </td>
@@ -58,24 +58,32 @@
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="thirdFormGroup" [editable]="isEditable">
-        <form [formGroup]="thirdFormGroup">
-            <ng-template matStepLabel>Descrição e fotos da hospedagem</ng-template>
-            <p>
-                <mat-form-field>
-                    <mat-label>Nome</mat-label>
-                    <input matInput formControlName="thirdFormGroup" #nomeMax maxlength="18" placeholder="Nome da hospedagem" required>
-                    <mat-hint align="end">{{nomeMax.value.length}} / 18</mat-hint>
-                </mat-form-field>
-            </p>
+    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+        <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Detalhes da hospedagem</ng-template>
+            <table><tr>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Nome</mat-label>
+                        <input matInput formControlName="secondCtrl" #nomeMax maxlength="18" placeholder="Nome da hospedagem" required>
+                        <mat-hint align="end">{{nomeMax.value.length}} / 18</mat-hint>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="campo-preco">
+                        <mat-label>Valor por noite</mat-label>
+                        <input matInput formControlName="secondCtrl" placeholder="R$ 0,00" required>
+                    </mat-form-field>
+                </td>
+            </tr></table>
             <mat-form-field class="area-descricao">
                 <mat-label>Descrição da hospedagem</mat-label>
-                <textarea matInput formControlName="thirdCtrl" rows="5" placeholder="Descreva com clareza todos os detalhes da hospedagem..." required></textarea>
+                <textarea matInput formControlName="secondCtrl" rows="5" style="resize: none" placeholder="Descreva com clareza todos os detalhes da hospedagem..." required></textarea>
             </mat-form-field>
             <p>
                 <mat-form-field class="area-especificacao">
                     <mat-label>Especificação</mat-label>
-                    <input matInput formControlName="thirdCtrl" #especMax maxlength="20" placeholder="Detalhe mais importante da hospedagem" required>
+                    <input matInput formControlName="secondCtrl" #especMax maxlength="20" placeholder="Detalhe mais importante da hospedagem" required>
                     <mat-hint align="end">{{especMax.value.length}} / 20</mat-hint>
                 </mat-form-field>
             </p>

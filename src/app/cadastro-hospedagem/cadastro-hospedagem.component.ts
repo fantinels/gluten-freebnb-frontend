@@ -27,9 +27,6 @@ export class CadastroHospedagemComponent {
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
-  thirdFormGroup = this._formBuilder.group({
-    thirdCtrl: ['', Validators.required],
-  });
 
   isEditable = true;
 
