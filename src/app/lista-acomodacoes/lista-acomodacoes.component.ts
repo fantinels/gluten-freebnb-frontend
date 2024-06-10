@@ -10,6 +10,7 @@ import { AcomodacaoService } from '../acomodacao.service';
 export class ListaAcomodacoesComponent {
 
   listaAcomodacoes: any[] = [];
+  nomePesquisado = "";
 
   constructor(private acomodacaoService: AcomodacaoService) {
     // this.listaAcomodacoes = this.acomodacaoService.listar();
