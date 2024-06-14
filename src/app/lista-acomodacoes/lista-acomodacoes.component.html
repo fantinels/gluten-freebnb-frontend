@@ -3,7 +3,7 @@
 <mat-progress-bar class="barra-progresso" *ngIf="listaAcomodacoes.length == 0" mode="indeterminate"></mat-progress-bar>
 
 <div class="container">
-    <div class="mb-3 filtro-container">
+    <div *ngIf="listaAcomodacoes.length > 0" class="mb-3 filtro-container">
         <label for="nome" class="form-label">Pesquisa:</label>
         <input [(ngModel)]="nomePesquisado" 
             class="form-control filtro-pesquisa"
