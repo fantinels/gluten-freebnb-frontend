@@ -9,7 +9,7 @@ export class FiltroPesquisaPipe implements PipeTransform {
 
   transform(litsaAcomodacoes: Acomodacao[], nomePesq: string): Acomodacao[] {
     return litsaAcomodacoes.filter ( (acomodacao:Acomodacao) => {
-      return acomodacao.nome?.toLowerCase().includes(nomePesq.toLowerCase())
+      return acomodacao.cidade?.toLowerCase().includes(nomePesq.toLowerCase())
     } )
   }
 

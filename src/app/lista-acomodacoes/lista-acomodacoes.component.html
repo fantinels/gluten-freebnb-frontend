@@ -12,9 +12,9 @@
     <div class="card" *ngFor="let acomodacao of listaAcomodacoes | filtroPesquisa:nomePesquisado">
         <app-fotos-hospedagem fotos="{{acomodacao.foto}}"></app-fotos-hospedagem>
         <div class="card-body">
-            <p class="titulo">{{acomodacao.nome}}</p>
-            <p class="especificacao">{{acomodacao.descricao}}</p>
-            <p>{{acomodacao.periodo}}</p>
+            <p class="titulo" title="{{acomodacao.nome}}">{{acomodacao.nome}}</p>
+            <p class="especificacao" title="{{acomodacao.descricao}}">{{acomodacao.descricao}}</p>
+            <p>{{acomodacao.cidade}} / {{acomodacao.uf}}</p>
             <div class="rodape-card">
                 <p class="preco">R$ {{acomodacao.valor}} / noite</p>
                 <a routerLink="/hospedagem/{{acomodacao.id}}" class="btn_ver_mais">ver mais</a>
