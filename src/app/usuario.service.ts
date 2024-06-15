@@ -19,7 +19,21 @@ const httpOptions = {
 })
 export class UsuarioService {
 
+  loggedInUser: string | null = null;
+
+  getLoggedInUser(): string | null {
+    return this.loggedInUser;
+  }
+
+  setLoggedInUser(user: string | null): void {
+    this.loggedInUser = user;
+  }
+
   constructor(private http: HttpClient) { }
+
+  listarUsuarios(): Observable<any> {
+    return this.http.get<any>(apiUrl)
+  }
 
   cadastrarUsuario(usuario: any): Observable<any> {
     return this.http.post<any>(apiUrl, usuario, httpOptions)
@@ -29,5 +43,16 @@ export class UsuarioService {
       })
     );
   }
+
+  login(email: string, senha: string): Observable<any> {
+    return this.http.get<any>(`${apiUrl}/email/${email}`)
+    .pipe(
+      catchError(error => {
+        throw error;
+      })
+    )
+  }
+
   
+
 }

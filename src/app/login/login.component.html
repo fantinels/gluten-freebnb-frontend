@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="card-login">
+        <h1>Login</h1>
+        <p>Digite seus dados de acesso nos campos abaixo.</p>
+        <form>
+            <label for="email">E-mail:</label>
+            <input id="email" type="text" placeholder="Digite seu e-mail" [(ngModel)]="email" name="email">
+            <label for="senha">Senha:</label>
+            <input id="senha" type="text" placeholder="Digite sua senha" [(ngModel)]="senha" name="senha" minlength="6" maxlength="6">
+            <span class="msg-erro" *ngIf="errorMessage" (click)="clearErrorMessage()">{{ errorMessage }}</span>
+            <a>Esqueci minha senha</a>
+            <button (click)="login(email, senha)">Acessar</button>
+        </form>
+    </div>
+</div>

@@ -4,13 +4,17 @@
     </div>
 
     <div class="links-centro">
-        <a href="">acomodações</a>
-        <a href="">experiências</a>
-        <a routerLink="/quem-somos">quem somos</a>
+        <a routerLink="home">acomodações</a>
+        <a>experiências</a>
+        <a routerLink="quem-somos">quem somos</a>
     </div>
 
-    <div class="links-direita">
-        <a href="">login</a>
+    <div *ngIf="!loggedInUser" class="links-direita">
+        <a routerLink="/login">login</a>
         <a routerLink="cadastro" class="btn_cadastrar">cadastre-se</a>
     </div>
+    <div *ngIf="loggedInUser">
+        <p>Olá, {{ loggedInUser }}!</p>
+        <button (click)="logout()">Logout</button>
+      </div>
 </header>

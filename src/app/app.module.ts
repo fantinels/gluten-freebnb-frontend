@@ -23,6 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { FiltroPesquisaPipe } from './filtro-pesquisa.pipe';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FiltroPesquisaPipe } from './filtro-pesquisa.pipe';
     FotosHospedagemComponent,
     CadastroHospedagemComponent,
     CadastroUsuarioComponent,
-    FiltroPesquisaPipe
+    FiltroPesquisaPipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
