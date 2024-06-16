@@ -3,8 +3,8 @@ import { Acomodacao } from './acomodacao';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-// const BASE_API = "http://localhost:3001/api/hospedagem";
-const BASE_API = "https://gluten-freebnb-backend.onrender.com/api/hospedagem";
+const BASE_API = "http://localhost:3001/api/hospedagem";
+// const BASE_API = "https://gluten-freebnb-backend.onrender.com/api/hospedagem";
 
 // somente utilizado para POST e PUT:
 const httpOptions = {
@@ -25,9 +25,14 @@ export class AcomodacaoService {
     return this.http.get<Acomodacao[]>(BASE_API);
   }
 
-  // buscarPorId(id: number): Observable<Acomodacao> {
-  //   return this.id;
-  // }
+  getUsuarioId(): any {
+    const usuarioId = localStorage.getItem('usuario.id');
+    return usuarioId;
+  }
+
+  cadastrarHospedagem(acomodacao: any, id_usuario: string): Observable<any> {
+    return this.http.post<any>(`${BASE_API}/${id_usuario}`, acomodacao, httpOptions);
+  }
 
 
 }

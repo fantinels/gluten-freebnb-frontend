@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from '../usuario.service';
 import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -9,6 +10,13 @@ import { catchError } from 'rxjs/operators';
   styleUrl: './cadastro-usuario.component.css'
 })
 export class CadastroUsuarioComponent implements OnInit {
+
+  atualizarPagina() {
+    this.router.navigate(['/home'])
+      .then( () => {
+        window.location.reload()
+    });
+  }
 
   isEditable = true;
 
@@ -21,7 +29,8 @@ export class CadastroUsuarioComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -43,13 +52,28 @@ export class CadastroUsuarioComponent implements OnInit {
             throw error
           })
         )
-        .subscribe(response => {
-          console.log('Usuário cadastrado com sucesso', response);
-          const userId = response.id; // Pega ID do usuário recém cadastrado
-          console.log('Novo ID do usuário:', userId);
-        });
+        .subscribe(usuario => {
+          localStorage.setItem('usuario.nome', usuario.nome);
+      });
     }
   }
+
+  cadastrarUsuarioEHospedagem(): void {
+    if (this.cadastroForm.valid) {
+      this.usuarioService.cadastrarUsuario(this.cadastroForm.value)
+        .pipe(
+          catchError(error => {
+            console.error('Erro ao cadastrar usuário', error);
+            throw error
+          })
+        )
+        .subscribe(usuario => {
+          localStorage.setItem('usuario.id', usuario.id);
+          console.log(usuario.id)
+      });
+    }
+  }
+
 
   // Método para verificar se o tipo de cadastro selecionado é "Hóspede"
   isTipoHospede(): boolean {

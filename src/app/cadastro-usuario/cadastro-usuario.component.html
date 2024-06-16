@@ -41,7 +41,7 @@
         <!-- Se o tipo de cadastro for "Hóspede", exibe o botão "Salvar", caso contrário, exibe o botão "Próximo" -->
         <button mat-button matStepperNext *ngIf="isTipoHospede(); else proximoButton" (click)="cadastrarUsuario()">Salvar</button>
         <ng-template #proximoButton>
-          <button mat-button matStepperNext routerLink="cadastro-hospedagem" (click)="cadastrarUsuario()" [disabled]="!cadastroForm.valid">Próximo</button>
+          <button mat-button matStepperNext routerLink="/cadastro/cadastro-hospedagem" (click)="cadastrarUsuarioEHospedagem()" [disabled]="!cadastroForm.valid">Próximo</button>
         </ng-template>
       </div>
     </form>
@@ -51,7 +51,7 @@
     <p>Você terminou seu cadastro!</p>
     <br>
     <div>
-      <button routerLink="/home" mat-button matStepperPrevious>Página inicial</button>
+      <button (click)="atualizarPagina()" mat-button matStepperPrevious>Página inicial</button>
     </div>
   </mat-step>
 </mat-stepper>

@@ -28,7 +28,6 @@ header {
 .links-direita a {
     text-decoration: none;
     text-transform: uppercase;
-
 }
 
 .links-centro {
@@ -70,7 +69,7 @@ header {
     }
 
     .links-centro, .links-direita {
-        display: none; /* Oculta os links */
+        display: block; /* Oculta os links */
     }
 }
 

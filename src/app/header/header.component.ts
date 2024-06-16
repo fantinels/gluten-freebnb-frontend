@@ -8,12 +8,19 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  constructor(public usuarioService: UsuarioService, private router: Router) {}
-
-  logout() {
-    this.router.navigate(['/'])
-  }
-
-  loggedInUser: string | null = null;
   
+  nomeUsuario = '';
+
+  constructor(public usuarioService: UsuarioService, private router: Router) {
+    
+    this.nomeUsuario = this.usuarioService.getUsuarioNome();
+  }
+  
+   logout() {
+    this.usuarioService.logout();
+    this.router.navigate(['/home'])
+      .then( () => {
+        window.location.reload()
+      });
+  }
 }

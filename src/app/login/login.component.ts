@@ -27,9 +27,11 @@ export class LoginComponent {
       usuario => {
         if(usuario && senha) {
           if(usuario.senha === senha) {
-            const userId = usuario.id;
-            console.log("LOGADO: ", usuario, usuario.senha);
-            this.usuarioService.setLoggedInUser(usuario.nome);
+            localStorage.setItem('usuario.nome', usuario.nome);
+            this.router.navigate(['/home'])
+              .then( () => {
+                window.location.reload()
+              });
           } else {
             this.errorMessage = 'Email ou senha incorreto!';
           }

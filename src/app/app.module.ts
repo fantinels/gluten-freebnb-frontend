@@ -24,6 +24,8 @@ import { CommonModule } from '@angular/common';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { FiltroPesquisaPipe } from './filtro-pesquisa.pipe';
 import { LoginComponent } from './login/login.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { LoginComponent } from './login/login.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    CommonModule
+    CommonModule,
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [
     provideAnimationsAsync()

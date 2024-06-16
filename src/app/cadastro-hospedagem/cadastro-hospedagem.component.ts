@@ -7,6 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select'
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AcomodacaoService } from '../acomodacao.service';
 
 // somente utilizado para POST e PUT:
 const httpOptions = {
@@ -21,6 +22,9 @@ const httpOptions = {
   styleUrl: './cadastro-hospedagem.component.css'
 })
 export class CadastroHospedagemComponent {
+
+  IdUsuario = '';
+
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
@@ -30,6 +34,18 @@ export class CadastroHospedagemComponent {
 
   isEditable = true;
 
-  constructor(private _formBuilder: FormBuilder, private http: HttpClient) {}
+  constructor(private _formBuilder: FormBuilder, private http: HttpClient, private acomodacaoService: AcomodacaoService) {
+    
+    // IdUsuario é o ID do usuário que acabou de se cadastrar:
+    this.IdUsuario = this.acomodacaoService.getUsuarioId();
+  }
 
+  cadastrarHospedagem(): void {
+    if(this.firstFormGroup.valid && this.secondFormGroup.valid) {
+      const hospedagem = this.firstFormGroup.value
+      // this.acomodacaoService.cadastrarHospedagem(hospedagem, this.IdUsuario);
+      console.log("HOSPEDAGEM SALVA :", hospedagem);
+      console.log("ID_USUARIO :", this.IdUsuario);
+    }
+  }
 }

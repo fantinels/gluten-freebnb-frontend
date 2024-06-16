@@ -54,7 +54,6 @@
     white-space: nowrap; /* Evita que o texto quebre para a próxima linha */
     overflow: hidden; /* Esconde o texto que ultrapassa a largura do container */
     text-overflow: ellipsis; /* Adiciona reticências no final do texto cortado */
-
 }
 
 .rodape-card {
@@ -91,10 +90,17 @@
 
 .filtro-pesquisa {
     width: 100%;
-    max-width: 400px; 
+    max-width: 500px;
     padding: 10px; 
     border-radius: 20px; 
     border: 1px solid #ccc; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    margin: 0 auto; 
+    margin: 0 auto;
+    font-size: large;
+}
+
+.form-label {
+    margin-bottom: 5px;
+    font-size: large;
+    font-weight: 400;
 }
