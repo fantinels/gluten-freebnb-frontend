@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 
-const apiUrl = "http://localhost:3001/api/usuario";
-// const apiUrl = "https://gluten-freebnb-backend.onrender.com/api/usuario";
+// const apiUrl = "http://localhost:3001/api/usuario";
+const apiUrl = "https://gluten-freebnb-backend.onrender.com/api/usuario";
 
 // somente utilizado para POST e PUT:
 const httpOptions = {
