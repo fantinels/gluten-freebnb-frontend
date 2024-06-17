@@ -69,7 +69,14 @@ header {
     }
 
     .links-centro, .links-direita {
-        display: block; /* Oculta os links */
+        font-size: 0.9rem;
+    }
+
+    .links-centro {
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 
