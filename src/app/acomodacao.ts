@@ -16,8 +16,4 @@ export class Acomodacao {
     foto?: string[];
     tipo_acomodacao?: string;
     valor?: string;
-    qt_hospede?: number;
-    qt_banheiro?: number;
-    qt_quarto?: number;
-    qt_cama?: number;
 }

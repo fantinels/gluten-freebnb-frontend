@@ -1,0 +1,51 @@
+<div class="container">
+    <section class="perfil">
+        <div class="titulo-btn">
+            <p>Perfil</p>
+            <button routerLink="" mat-fab extended>
+                <mat-icon>edit</mat-icon>
+                Editar
+            </button>
+        </div>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Nome</mat-label>
+                <input matInput disabled value="{{user.nome}}">
+            </mat-form-field>          
+            <mat-form-field class="example-full-width">
+                <mat-label>CPF</mat-label>
+                <input matInput disabled value="{{user.cpf}}">
+            </mat-form-field>          
+            <mat-form-field class="example-full-width">
+                <mat-label>E-mail</mat-label>
+                <input matInput disabled value="{{user.email}}">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Senha</mat-label>
+                <input matInput disabled value="{{user.senha}}">
+            </mat-form-field>
+        </form>
+
+    </section>
+    <section class="hospedagens">
+        <div class="titulo-btn">
+            <p>Minhas hospedagens</p>
+            <button routerLink="/cadastro/cadastro-hospedagem" mat-fab extended title="Adicionar hospedagem">
+                <mat-icon>add</mat-icon>
+                Adicionar hospedagem
+            </button>
+        </div>
+        <div class="card" *ngFor="let acomodacao of listaAcomodacoes">
+            <app-fotos-hospedagem fotos="{{acomodacao.foto}}"></app-fotos-hospedagem>
+            <div class="card-body">
+                <p class="titulo" title="{{acomodacao.nome}}">{{acomodacao.nome}}</p>
+                <p class="especificacao" title="{{acomodacao.especificacao}}">{{acomodacao.especificacao}}</p>
+                <p>{{acomodacao.cidade}} / {{acomodacao.uf}}</p>
+                <div class="rodape-card">
+                    <p class="preco">R$ {{acomodacao.valor}} / noite</p>
+                    <a routerLink="/hospedagem/{{acomodacao.id}}" class="btn-editar">editar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

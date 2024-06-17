@@ -28,6 +28,7 @@ export class LoginComponent {
         if(usuario && senha) {
           if(usuario.senha === senha) {
             localStorage.setItem('usuario.nome', usuario.nome);
+            sessionStorage.setItem('usuario.id', usuario.id);
             this.router.navigate(['/home'])
               .then( () => {
                 window.location.reload()

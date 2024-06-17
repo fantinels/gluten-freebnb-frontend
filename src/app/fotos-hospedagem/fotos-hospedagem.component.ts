@@ -18,9 +18,7 @@ export class FotosHospedagemComponent {
       this.fotosTratadas.push(this.fotos);
     } else {
       this.fotos = this.fotos.replace(/{|}|"/g, '');
-      // console.log('this.fotos',this.fotos);
       this.fotosTratadas = this.fotos.split(',');
-      // console.log('FOTOS TRATADAS',this.fotosTratadas);
     }
   }
 

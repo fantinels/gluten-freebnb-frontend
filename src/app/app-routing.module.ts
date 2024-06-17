@@ -5,6 +5,7 @@ import { ListaAcomodacoesComponent } from './lista-acomodacoes/lista-acomodacoes
 import { CadastroHospedagemComponent } from './cadastro-hospedagem/cadastro-hospedagem.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { LoginComponent } from './login/login.component';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 const routes: Routes = [
   { path: 'home', component: ListaAcomodacoesComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'cadastro', component: CadastroUsuarioComponent},
   { path: 'hospedagem/:id', component: ListaAcomodacoesComponent },
   { path: 'quem-somos', component: QuemSomosComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'perfil', component: PerfilUsuarioComponent },
 ];
 
 @NgModule({

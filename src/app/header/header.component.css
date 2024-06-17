@@ -41,8 +41,9 @@ header {
     width: 20%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     align-items: center;
+    margin-right: 20px;
 }
 
 .links-direita .btn_cadastrar {
@@ -56,7 +57,7 @@ header {
 /* Media queries para ajustar o layout em telas menores */
 
 /* Para telas menores que 768px */
-@media screen and (max-width: 768px) {  
+@media screen and (max-width: 1000px) {  
     .logotipo {
         margin-left: 15px; /* Reduz a margem esquerda do logotipo */
         width: 100px;

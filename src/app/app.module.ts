@@ -26,6 +26,7 @@ import { FiltroPesquisaPipe } from './filtro-pesquisa.pipe';
 import { LoginComponent } from './login/login.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MatMenuModule } from '@angular/material/menu';
     CadastroHospedagemComponent,
     CadastroUsuarioComponent,
     FiltroPesquisaPipe,
-    LoginComponent
+    LoginComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,

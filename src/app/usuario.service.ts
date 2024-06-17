@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 
-// const apiUrl = "http://localhost:3001/api/usuario";
-const apiUrl = "https://gluten-freebnb-backend.onrender.com/api/usuario";
+const apiUrl = "http://localhost:3001/api/usuario";
+// const apiUrl = "https://gluten-freebnb-backend.onrender.com/api/usuario";
 
 // somente utilizado para POST e PUT:
 const httpOptions = {
@@ -26,13 +26,22 @@ export class UsuarioService {
 
   logout() {
     localStorage.removeItem('usuario.nome');
-    localStorage.removeItem('usuario.id');
+    sessionStorage.removeItem('usuario.id');
   }
 
   constructor(private http: HttpClient) { }
 
   listarUsuarios(): Observable<any> {
     return this.http.get<any>(apiUrl)
+  }
+
+  getUsuarioId(): any {
+    const usuarioId = sessionStorage.getItem('usuario.id');
+    return usuarioId;
+  }
+
+  usuarioPeloId(): Observable<any> {
+    return this.http.get<any>(`${apiUrl}/${this.getUsuarioId()}`);
   }
 
   cadastrarUsuario(usuario: any): Observable<any> {
