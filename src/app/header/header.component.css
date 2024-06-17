@@ -53,6 +53,10 @@ header {
     border-radius: 5px;
 }
 
+.links-direita .btn_login {
+    margin-right: 10px;
+}
+
 
 /* Media queries para ajustar o layout em telas menores */
 
