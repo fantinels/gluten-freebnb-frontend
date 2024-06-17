@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  hidePassword = true;
   email: string = '';
   senha: string = '';
   errorMessage: string = '';

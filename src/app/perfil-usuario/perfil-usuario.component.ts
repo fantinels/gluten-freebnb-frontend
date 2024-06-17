@@ -9,6 +9,8 @@ import { UsuarioService } from '../usuario.service';
 })
 export class PerfilUsuarioComponent {
 
+  hidePassword = true;
+  
   listaAcomodacoes: any[] = [];
 
   user: any = '';
