@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AcomodacaoService } from '../acomodacao.service';
 import { UsuarioService } from '../usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -21,7 +22,7 @@ export class PerfilUsuarioComponent {
 
   user: any = '';
 
-  constructor(private acomodacaoService: AcomodacaoService, private usuarioService: UsuarioService) {
+  constructor(private acomodacaoService: AcomodacaoService, private usuarioService: UsuarioService, private router: Router) {
 
     this.acomodacaoService.listarHospedagemPorIdUsuario().subscribe(
       (acomodacao) => {
@@ -56,10 +57,14 @@ export class PerfilUsuarioComponent {
     this.usuarioService.editarUsuario(this.user.id, this.user).subscribe(
       (usuario) => {
         this.user = usuario
-        localStorage.setItem('usuario.nome', usuario.nome)
-        console.log("DADOS ATUALIZADOS: ", usuario);
+        localStorage.setItem('usuario.nome', usuario.nome);
+        // console.log("DADOS ATUALIZADOS: ", usuario);
         this.isDisable = true;
         this.mostrarBotao = false;
+        this.router.navigate(['/perfil'])
+      .then( () => {
+        window.location.reload()
+      });
       }
     )
   }
