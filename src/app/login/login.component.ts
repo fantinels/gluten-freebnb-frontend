@@ -40,6 +40,9 @@ export class LoginComponent {
         } else {
           this.errorMessage = 'Faltou digitar a senha!';
         }
+      },
+      error => {
+        this.errorMessage = 'Email ou senha incorreto!';
       }
     )
   }
