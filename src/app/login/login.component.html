@@ -5,14 +5,16 @@
         <form>
             <label for="email">E-mail:</label>
             <input id="email" type="text" placeholder="Digite seu e-mail" [(ngModel)]="email" name="email">
-            <label for="senha">Senha:</label>
+            <div class="espaco-senha">
+                <label for="senha">Senha:</label>
+                <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.title]="hidePassword ? 'Mostrar senha' : 'Esconder senha'">
+                    <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </div>
             <input id="senha" matInput [type]="hidePassword ? 'password' : 'text'" placeholder="Digite sua senha" [(ngModel)]="senha" name="senha" minlength="6" maxlength="6">
-            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.title]="hidePassword ? 'Mostrar senha' : 'Esconder senha'">
-                <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-            </button>
             <span class="msg-erro" *ngIf="errorMessage" (click)="clearErrorMessage()">{{ errorMessage }}</span>
             <a>Esqueci minha senha</a>
-            <button (click)="login(email, senha)">Acessar</button>
+            <button class="btn-acessar" (click)="login(email, senha)">Acessar</button>
         </form>
     </div>
 </div>

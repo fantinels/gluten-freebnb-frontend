@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class CadastroUsuarioComponent implements OnInit {
 
+  hidePassword = true;
+
   atualizarPagina() {
     this.router.navigate(['/home'])
       .then( () => {
@@ -54,6 +56,7 @@ export class CadastroUsuarioComponent implements OnInit {
         )
         .subscribe(usuario => {
           localStorage.setItem('usuario.nome', usuario.nome);
+          sessionStorage.setItem('usuario.id', usuario.id);
       });
     }
   }
@@ -68,7 +71,8 @@ export class CadastroUsuarioComponent implements OnInit {
           })
         )
         .subscribe(usuario => {
-          localStorage.setItem('usuario.id', usuario.id);
+          localStorage.setItem('usuario.nome', usuario.nome);
+          sessionStorage.setItem('usuario.id', usuario.id);
           console.log(usuario.id)
       });
     }

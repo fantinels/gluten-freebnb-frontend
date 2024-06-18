@@ -24,8 +24,11 @@
       <td>
         <mat-form-field class="example-full-width">
           <mat-label>Senha</mat-label>
-          <input matInput #passCode maxlength="6" formControlName="senha" placeholder="Mínimo 6 caracteres" required>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" #passCode maxlength="6" formControlName="senha" placeholder="Mínimo 6 caracteres" required>
           <mat-hint align="end">{{passCode.value.length}} / 6</mat-hint>
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.title]="hidePassword ? 'Mostrar senha' : 'Esconder senha'">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
         </mat-form-field>
       </td>
       </tr></table>

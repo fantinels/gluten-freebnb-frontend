@@ -11,7 +11,7 @@ export class Acomodacao {
     complemento?: string;
     bairro?: string;
     cidade?: string;
-    uf?: string;
+    estado?: string;
     descricao?: string;
     foto?: string[];
     tipo_acomodacao?: string;

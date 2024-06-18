@@ -38,6 +38,7 @@
                 Adicionar hospedagem
             </button>
         </div>
+        <h1 class="aviso-sem-hospedagem" *ngIf="listaAcomodacoes.length == 0">Você não tem hospedagens cadastradas.</h1>
         <div class="card" *ngFor="let acomodacao of listaAcomodacoes">
             <app-fotos-hospedagem fotos="{{acomodacao.foto}}"></app-fotos-hospedagem>
             <div class="card-body">
