@@ -9,7 +9,13 @@ import { UsuarioService } from '../usuario.service';
 })
 export class PerfilUsuarioComponent {
 
+  mostrarBotao = false;
+  todosHabilitados = true;
+
+
   hidePassword = true;
+
+  isDisable = true;
   
   listaAcomodacoes: any[] = [];
 
@@ -33,4 +39,28 @@ export class PerfilUsuarioComponent {
     );
   }
 
+  habilitarInputs(): void {
+    this.isDisable = false
+
+    const inputs = document.querySelectorAll('input');
+    
+    inputs.forEach( (input) => {
+      if(!input.disabled) {
+        this.todosHabilitados = false;
+      }
+    });    
+    this.mostrarBotao = this.todosHabilitados;
+  }
+
+  enviarDadosApi() {
+    this.usuarioService.editarUsuario(this.user.id, this.user).subscribe(
+      (usuario) => {
+        this.user = usuario
+        localStorage.setItem('usuario.nome', usuario.nome)
+        console.log("DADOS ATUALIZADOS: ", usuario);
+        this.isDisable = true;
+        this.mostrarBotao = false;
+      }
+    )
+  }
 }

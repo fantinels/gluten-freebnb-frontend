@@ -57,6 +57,8 @@ export class UsuarioService {
     )
   }
 
-  
+  editarUsuario(id: any, usuario: any) {
+    return this.http.put<any>(`${apiUrl}/${this.getUsuarioId()}`, usuario, httpOptions)
+  }
 
 }
