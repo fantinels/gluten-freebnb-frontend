@@ -19,6 +19,10 @@
                 <input matInput [disabled]="isDisable" value="{{user.nome}}" [(ngModel)]="user.nome" name="nome">
             </mat-form-field>          
             <mat-form-field class="example-full-width">
+                <mat-label>Sobrenome</mat-label>
+                <input matInput [disabled]="isDisable" value="{{user.nome}}" [(ngModel)]="user.sobrenome" name="sobrenome">
+            </mat-form-field>          
+            <mat-form-field class="example-full-width">
                 <mat-label>CPF</mat-label>
                 <input matInput [disabled]="isDisable" value="{{user.cpf}}" [(ngModel)]="user.cpf" name="cpf">
             </mat-form-field>          
