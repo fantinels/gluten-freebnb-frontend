@@ -14,14 +14,17 @@ header {
 }
 
 .logotipo {
-    height: 80px;
+    width: 20%;
+    height: 60px;
     margin-left: 45px;
 }
 
 .logotipo img {
-    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
     width: 100%;
     height: 100%;
+    cursor: pointer;
 }
 
 .links-centro a,
@@ -68,13 +71,6 @@ header {
 @media screen and (max-width: 1000px) {  
     .logotipo {
         margin-left: 15px; /* Reduz a margem esquerda do logotipo */
-        width: 100px;
-        background: url('../../assets/img/logo1-responsivo.png') no-repeat;
-        border-radius: 50px;
-    }
-
-    .logotipo img {
-        width: 0%;
     }
 
     .links-centro, .links-direita {
@@ -114,7 +110,12 @@ header {
   
     .logotipo {
         height: 60px; /* Reduz a altura do logotipo */
-        margin-left: 10px; /* Reduz ainda mais a margem esquerda do logotipo */
+        margin-left: 15px; /* Reduz a margem esquerda do logotipo */
+    }
+    
+    .logotipo img {
+        margin-top: 10px;
+        height: 50%;
     }
 
     .links-esquerda {
