@@ -14,6 +14,7 @@
         <a routerLink="cadastro" class="btn_cadastrar">cadastre-se</a>
     </div>
 
+    <!-- Este botões aparecem em telas menores (responsividade): -->
     <div *ngIf="!nomeUsuario" class="menu-burger">
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
         <mat-icon>menu</mat-icon>
@@ -29,8 +30,10 @@
         </button>
       </mat-menu>
     </div>
+    <!-- --------------------------------------- -->
 
-    <div *ngIf="nomeUsuario" class="links-direita">
+    <!-- Estes botões aparecem após usuário se cadastrar/logar -->
+    <div *ngIf="nomeUsuario" class="links-direita usuario-logado">
         <p>Olá, {{ nomeUsuario }}!</p>
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <mat-icon>menu</mat-icon>
