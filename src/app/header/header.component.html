@@ -13,6 +13,23 @@
         <a routerLink="login" class="btn_login">login</a>
         <a routerLink="cadastro" class="btn_cadastrar">cadastre-se</a>
     </div>
+
+    <div *ngIf="!nomeUsuario" class="menu-burger">
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>login</mat-icon>
+          <span routerLink="/login">Login</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>person_add</mat-icon>
+          <span routerLink="/cadastro">Cadastre-se</span>
+        </button>
+      </mat-menu>
+    </div>
+
     <div *ngIf="nomeUsuario" class="links-direita">
         <p>Olá, {{ nomeUsuario }}!</p>
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">

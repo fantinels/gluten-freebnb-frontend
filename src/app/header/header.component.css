@@ -46,6 +46,10 @@ header {
     margin-right: 20px;
 }
 
+.menu-burger {
+    display: none;
+}
+
 .links-direita .btn_cadastrar {
     background-color: red;
     color: white;
@@ -75,6 +79,14 @@ header {
 
     .links-centro, .links-direita {
         font-size: 0.9rem;
+    }
+
+    .links-direita {
+        display: none;
+    }
+
+    .menu-burger {
+        display: block;
     }
 
     .links-centro {
