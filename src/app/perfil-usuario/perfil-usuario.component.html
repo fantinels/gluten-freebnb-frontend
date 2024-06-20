@@ -63,10 +63,15 @@
             <div class="card-body">
                 <p class="titulo" title="{{acomodacao.nome}}">{{acomodacao.nome}}</p>
                 <p class="especificacao" title="{{acomodacao.especificacao}}">{{acomodacao.especificacao}}</p>
-                <p>{{acomodacao.cidade}} / {{acomodacao.uf}}</p>
+                <p>{{acomodacao.cidade}} / {{acomodacao.estado}}</p>
+                <p class="preco">R$ {{acomodacao.valor}} / noite</p>
                 <div class="rodape-card">
-                    <p class="preco">R$ {{acomodacao.valor}} / noite</p>
-                    <a routerLink="/hospedagem/{{acomodacao.id}}" class="btn-editar-hospedagem">editar</a>
+                    <a class="btns-rodape" matTooltip="Excluir" (click)="excluirHospedagem(acomodacao.id)">
+                        <mat-icon>delete</mat-icon>
+                    </a>
+                    <a routerLink="/hospedagem/{{acomodacao.id}}" class="btns-rodape" matTooltip="Editar">
+                        <mat-icon>edit</mat-icon>
+                    </a>
                 </div>
             </div>
         </div>

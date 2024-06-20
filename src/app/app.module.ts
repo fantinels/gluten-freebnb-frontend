@@ -26,6 +26,7 @@ import { FiltroPesquisaPipe } from './filtro-pesquisa.pipe';
 import { LoginComponent } from './login/login.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTooltip } from '@angular/material/tooltip';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 
 @NgModule({
@@ -56,7 +57,8 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     MatSelectModule,
     CommonModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTooltip
   ],
   providers: [
     provideAnimationsAsync()

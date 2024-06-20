@@ -38,5 +38,9 @@ export class AcomodacaoService {
     return this.http.get<any[]>(`${BASE_API}/user/${this.getUsuarioId()}`)
   }
 
+  excluirHospedagem(id: any): Observable<any>{
+    return this.http.delete<any>(`${BASE_API}/${id}`)
+  }
+
 
 }

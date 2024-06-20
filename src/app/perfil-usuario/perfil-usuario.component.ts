@@ -73,17 +73,32 @@ export class PerfilUsuarioComponent {
   }
 
   excluirPerfil(): void {
-    this.usuarioService.excluirPerfil(this.usuarioService.getUsuarioId()).subscribe(
-      (usuario) => {
-        sessionStorage.removeItem('usuario.nome');
-        sessionStorage.removeItem('usuario.id');
-        this.router.navigate(['/home'])
+    if(confirm("Tem certeza que deseja excluir seu perfil?")) {
+      this.usuarioService.excluirPerfil(this.usuarioService.getUsuarioId()).subscribe(
+        (usuario) => {
+          sessionStorage.removeItem('usuario.nome');
+          sessionStorage.removeItem('usuario.id');
+          this.router.navigate(['/home'])
+            .then( () => {
+              window.location.reload();
+            })
+        }
+      )
+    }
+  }
+
+  excluirHospedagem(id: any): void {
+    if(confirm("Tem certeza que deseja excluir esta hospedagem?")) {
+      this.acomodacaoService.excluirHospedagem(id).subscribe(
+        (hospedagem) => {
+          console.log("Hosp. Excluída: ", hospedagem);
+          this.router.navigate(['/perfil'])
           .then( () => {
             window.location.reload();
           })
-      }
-    )
+  
+        }
+      )
+    }
   }
-
-
 }
