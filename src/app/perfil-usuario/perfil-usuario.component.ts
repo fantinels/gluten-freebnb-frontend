@@ -27,15 +27,14 @@ export class PerfilUsuarioComponent {
     this.acomodacaoService.listarHospedagemPorIdUsuario().subscribe(
       (acomodacao) => {
         this.listaAcomodacoes = acomodacao;
-        console.log(acomodacao);
-        
+        console.log("Hospedagens: ", acomodacao);
       }
     );
 
     this.usuarioService.usuarioPeloId().subscribe(
       (usuario) => {
         this.user = usuario
-        console.log(usuario);
+        console.log("Usuário", usuario);
       }
     );
   }
@@ -53,19 +52,38 @@ export class PerfilUsuarioComponent {
     this.mostrarBotao = this.todosHabilitados;
   }
 
+  desabilitarInputs(): void {
+    this.isDisable = true;
+    this.mostrarBotao = false;
+  }
+
   enviarDadosApi() {
     this.usuarioService.editarUsuario(this.user.id, this.user).subscribe(
       (usuario) => {
         this.user = usuario
-        localStorage.setItem('usuario.nome', usuario.nome);
-        // console.log("DADOS ATUALIZADOS: ", usuario);
+        sessionStorage.setItem('usuario.nome', usuario.nome);
         this.isDisable = true;
         this.mostrarBotao = false;
         this.router.navigate(['/perfil'])
-      .then( () => {
-        window.location.reload()
+          .then( () => {
+            window.location.reload()
       });
       }
     )
   }
+
+  excluirPerfil(): void {
+    this.usuarioService.excluirPerfil(this.usuarioService.getUsuarioId()).subscribe(
+      (usuario) => {
+        sessionStorage.removeItem('usuario.nome');
+        sessionStorage.removeItem('usuario.id');
+        this.router.navigate(['/home'])
+          .then( () => {
+            window.location.reload();
+          })
+      }
+    )
+  }
+
+
 }

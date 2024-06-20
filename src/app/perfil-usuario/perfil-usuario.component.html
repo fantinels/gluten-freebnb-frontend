@@ -3,13 +3,21 @@
         <div class="titulo-btn">
             <p>Perfil</p>
             <div>
-                <button *ngIf="!mostrarBotao" (click)="habilitarInputs()" mat-fab extended>
+                <button class="btn-editar-perfil" *ngIf="!mostrarBotao" (click)="habilitarInputs()" mat-fab extended>
                     <mat-icon>edit</mat-icon>
                     Editar
                 </button>
-                <button *ngIf="mostrarBotao" (click)="enviarDadosApi()" mat-fab extended>
+                <button class="btn-deletar-perfil" *ngIf="mostrarBotao" (click)="excluirPerfil()" mat-fab extended title="Excluir cadastro">
+                    <mat-icon>delete</mat-icon>
+                    Excluir
+                </button>
+                <button class="btn-salvar-perfil" *ngIf="mostrarBotao" (click)="enviarDadosApi()" mat-fab extended>
                     <mat-icon>check</mat-icon>
                     Salvar
+                </button>
+                <button class="btn-cancelar" *ngIf="mostrarBotao" (click)="desabilitarInputs()" mat-fab extended>
+                    <mat-icon>close</mat-icon>
+                    Cancelar
                 </button>
             </div>
         </div>
@@ -20,7 +28,7 @@
             </mat-form-field>          
             <mat-form-field class="example-full-width">
                 <mat-label>Sobrenome</mat-label>
-                <input matInput [disabled]="isDisable" value="{{user.nome}}" [(ngModel)]="user.sobrenome" name="sobrenome">
+                <input matInput [disabled]="isDisable" value="{{user.sobrenome}}" [(ngModel)]="user.sobrenome" name="sobrenome">
             </mat-form-field>          
             <mat-form-field class="example-full-width">
                 <mat-label>CPF</mat-label>
@@ -46,10 +54,10 @@
             <p>Minhas hospedagens</p>
             <button routerLink="/cadastro/cadastro-hospedagem" mat-fab extended title="Adicionar hospedagem">
                 <mat-icon>add</mat-icon>
-                Adicionar hospedagem
+                Hospedagem
             </button>
         </div>
-        <h1 class="aviso-sem-hospedagem" *ngIf="listaAcomodacoes.length == 0">Você não tem hospedagens cadastradas.</h1>
+        <h1 class="aviso-sem-hospedagem" *ngIf="listaAcomodacoes.length == 0">Você não possui hospedagens cadastradas.</h1>
         <div class="card" *ngFor="let acomodacao of listaAcomodacoes">
             <app-fotos-hospedagem fotos="{{acomodacao.foto}}"></app-fotos-hospedagem>
             <div class="card-body">

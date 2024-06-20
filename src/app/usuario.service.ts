@@ -20,12 +20,12 @@ const httpOptions = {
 export class UsuarioService {
 
   getUsuarioNome(): any {
-    const usuario = localStorage.getItem('usuario.nome');
+    const usuario = sessionStorage.getItem('usuario.nome');
     return usuario;
   }
 
   logout() {
-    localStorage.removeItem('usuario.nome');
+    sessionStorage.removeItem('usuario.nome');
     sessionStorage.removeItem('usuario.id');
   }
 
@@ -58,7 +58,11 @@ export class UsuarioService {
   }
 
   editarUsuario(id: any, usuario: any) {
-    return this.http.put<any>(`${apiUrl}/${this.getUsuarioId()}`, usuario, httpOptions)
+    return this.http.put<any>(`${apiUrl}/${this.getUsuarioId()}`, usuario, httpOptions);
+  }
+
+  excluirPerfil(id: any) {
+    return this.http.delete<any>(`${apiUrl}/${this.getUsuarioId()}`);
   }
 
 }

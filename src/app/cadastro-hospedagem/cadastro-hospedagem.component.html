@@ -65,8 +65,8 @@
                 <td>
                     <mat-form-field>
                         <mat-label>Nome</mat-label>
-                        <input matInput formControlName="secondCtrl" #nomeMax maxlength="18" placeholder="Nome da hospedagem" required>
-                        <mat-hint align="end">{{nomeMax.value.length}} / 18</mat-hint>
+                        <input matInput formControlName="secondCtrl" #nomeMax maxlength="25" placeholder="Nome da hospedagem" required>
+                        <mat-hint align="end">{{nomeMax.value.length}} / 25</mat-hint>
                     </mat-form-field>
                 </td>
                 <td>
@@ -83,8 +83,8 @@
             <p>
                 <mat-form-field class="area-especificacao">
                     <mat-label>Especificação</mat-label>
-                    <input matInput formControlName="secondCtrl" #especMax maxlength="20" placeholder="Detalhe mais importante da hospedagem" required>
-                    <mat-hint align="end">{{especMax.value.length}} / 20</mat-hint>
+                    <input matInput formControlName="secondCtrl" #especMax maxlength="30" placeholder="Detalhe mais importante da hospedagem" required>
+                    <mat-hint align="end">{{especMax.value.length}} / 30</mat-hint>
                 </mat-form-field>
             </p>
             <p>

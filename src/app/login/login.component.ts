@@ -28,7 +28,7 @@ export class LoginComponent {
       usuario => {
         if(usuario && senha) {
           if(usuario.senha === senha) {
-            localStorage.setItem('usuario.nome', usuario.nome);
+            sessionStorage.setItem('usuario.nome', usuario.nome);
             sessionStorage.setItem('usuario.id', usuario.id);
             this.router.navigate(['/home'])
               .then( () => {
