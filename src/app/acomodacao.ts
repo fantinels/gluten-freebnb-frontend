@@ -1,19 +1,16 @@
-export class Acomodacao {
-    id?: number;
-    id_usuario?: number;
+export interface Acomodacao {
+    id?: string;
+    id_usuario?: string;
     nome?: string;
-    especificacao?: string;
-    periodo?: string;
-    cep?: string;
-    tipo_logradouro?: string;
-    logradouro?: string;
+    endereco?: string;
     numero?: number;
     complemento?: string;
     bairro?: string;
     cidade?: string;
     estado?: string;
-    descricao?: string;
-    foto?: string[];
-    tipo_acomodacao?: string;
+    cep?: string;
     valor?: string;
+    descricao?: string;
+    especificacao?: string;
+    foto?: string[];
 }

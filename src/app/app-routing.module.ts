@@ -6,6 +6,7 @@ import { CadastroHospedagemComponent } from './cadastro-hospedagem/cadastro-hosp
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { LoginComponent } from './login/login.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { DetalhesHospedagemComponent } from './detalhes-hospedagem/detalhes-hospedagem.component';
 
 const routes: Routes = [
   { path: 'home', component: ListaAcomodacoesComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'quem-somos', component: QuemSomosComponent },
   { path: 'login', component: LoginComponent },
   { path: 'perfil', component: PerfilUsuarioComponent },
+  { path: 'hospedagem/:id/detalhes', component: DetalhesHospedagemComponent },
 ];
 
 @NgModule({

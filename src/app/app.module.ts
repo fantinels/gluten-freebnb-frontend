@@ -28,6 +28,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltip } from '@angular/material/tooltip';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { DetalhesHospedagemComponent } from './detalhes-hospedagem/detalhes-hospedagem.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     CadastroUsuarioComponent,
     FiltroPesquisaPipe,
     LoginComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    DetalhesHospedagemComponent
   ],
   imports: [
     BrowserModule,

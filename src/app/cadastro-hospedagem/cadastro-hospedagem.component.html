@@ -1,32 +1,32 @@
 
   <mat-stepper linear #stepper>
-    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+    <mat-step [editable]="isEditable">
     <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Endereço da hospedagem</ng-template>
             <form [formGroup]="firstFormGroup" class="example-form">
             <p>
                 <mat-form-field class="example-full-width">
                     <mat-label>Endereço</mat-label>
-                    <input formControlName="firstCtrl" matInput placeholder="Ex. Rua Exemplo" required>
+                    <input formControlName="endereco" matInput placeholder="Ex. Rua Exemplo" required>
                 </mat-form-field>
             </p>
             <table class="example-full-width" cellspacing="0"><tr>
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Número</mat-label>
-                        <input formControlName="firstCtrl" matInput placeholder="Ex. 10" required>
+                        <input formControlName="numero" matInput placeholder="Ex. 10" required>
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Complemento</mat-label>
-                        <input matInput placeholder="Ex. apto 101 bloco A">
+                        <input formControlName="complemento" matInput placeholder="Ex. apto 101 bloco A">
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Bairro</mat-label>
-                        <input formControlName="firstCtrl" matInput placeholder="Ex. Harmonia" required>
+                        <input formControlName="bairro" matInput placeholder="Ex. Harmonia" required>
                     </mat-form-field>
                 </td>
             </tr></table>            
@@ -34,67 +34,67 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Cidade</mat-label>
-                        <input formControlName="firstCtrl" matInput placeholder="Ex. Porto Alegre" required>
+                        <input formControlName="cidade" matInput placeholder="Ex. Porto Alegre" required>
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Estado</mat-label>
-                        <input formControlName="firstCtrl" matInput placeholder="Ex. RS" required>
+                        <input formControlName="estado" matInput placeholder="Ex. RS" required>
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>CEP</mat-label>
-                        <input formControlName="firstCtrl" matInput #postalCode maxlength="8" placeholder="Ex. 91340140" required>
+                        <input formControlName="cep" matInput #postalCode maxlength="8" placeholder="Ex. 91340140" required>
                         <mat-hint align="end">{{postalCode.value.length}} / 8</mat-hint>
                     </mat-form-field>
                 </td>
             </tr></table>
-          </form>      
+            </form>      
           <div>
           <!-- <button mat-button matStepperPrevious routerLink="cadastro">Voltar</button> -->
           <button mat-button matStepperNext>Próximo</button>
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+    <mat-step [editable]="isEditable">
         <form [formGroup]="secondFormGroup">
             <ng-template matStepLabel>Detalhes da hospedagem</ng-template>
             <table><tr>
                 <td>
                     <mat-form-field>
                         <mat-label>Nome</mat-label>
-                        <input matInput formControlName="secondCtrl" #nomeMax maxlength="25" placeholder="Nome da hospedagem" required>
+                        <input matInput formControlName="nome" #nomeMax maxlength="25" placeholder="Nome da hospedagem" required>
                         <mat-hint align="end">{{nomeMax.value.length}} / 25</mat-hint>
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="campo-preco">
                         <mat-label>Valor por noite</mat-label>
-                        <input matInput formControlName="secondCtrl" placeholder="R$ 0,00" required>
+                        <input matInput formControlName="valor" placeholder="R$ 0,00" required>
                     </mat-form-field>
                 </td>
             </tr></table>
             <mat-form-field class="area-descricao">
                 <mat-label>Descrição da hospedagem</mat-label>
-                <textarea matInput formControlName="secondCtrl" rows="5" style="resize: none" placeholder="Descreva com clareza todos os detalhes da hospedagem..." required></textarea>
+                <textarea matInput formControlName="descricao" rows="5" style="resize: none" placeholder="Descreva com clareza todos os detalhes da hospedagem..." required></textarea>
             </mat-form-field>
             <p>
                 <mat-form-field class="area-especificacao">
                     <mat-label>Especificação</mat-label>
-                    <input matInput formControlName="secondCtrl" #especMax maxlength="30" placeholder="Detalhe mais importante da hospedagem" required>
+                    <input matInput formControlName="especificacao" #especMax maxlength="30" placeholder="Detalhe mais importante da hospedagem" required>
                     <mat-hint align="end">{{especMax.value.length}} / 30</mat-hint>
                 </mat-form-field>
             </p>
             <p>
-                <input type="file" multiple>
+                <input type="file" multiple (change)="selecionarArquivos($event)" accept="image/x-png,image/jpeg">
                 <br>
                 <button mat-button color="primary">Fotos</button>
             </p>
             <div>
                 <button mat-button matStepperPrevious>Voltar</button>
-                <button mat-button matStepperNext>Próximo</button>
+                <button mat-button matStepperNext (click)="cadastrarHospedagem()">Próximo</button>
             </div>
         </form>
     </mat-step>
