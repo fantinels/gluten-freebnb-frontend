@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Acomodacao } from '../acomodacao';
-import {FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup} from '@angular/forms';
+import {FormBuilder, Validators, FormsModule, ReactiveFormsModule, FormGroup, Form, FormArray} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule, MatLabel} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
@@ -9,13 +9,6 @@ import {MatSelectModule} from '@angular/material/select'
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AcomodacaoService } from '../acomodacao.service';
-
-// somente utilizado para POST e PUT:
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-  })
-};
 
 @Component({
   selector: 'app-cadastro-hospedagem',
@@ -30,8 +23,6 @@ export class CadastroHospedagemComponent implements OnInit {
   secondFormGroup: FormGroup = new FormGroup({});
 
   isEditable = true;
-
-  // listFiles: any[] = [];
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private acomodacaoService: AcomodacaoService) {
     
@@ -54,39 +45,32 @@ export class CadastroHospedagemComponent implements OnInit {
       valor: ['', Validators.required],
       descricao: ['', Validators.required],
       especificacao: ['', [Validators.required, Validators.maxLength(45)]],
-      foto: ['']
+      foto: this.formBuilder.array([])
     });
+  }
+
+  createItem(data: any): FormGroup {
+    return this.formBuilder.group(data);
+  }
+
+  get foto(): FormArray {
+    return this.secondFormGroup?.get('foto') as FormArray; 
   }
 
   selecionarArquivos(event: any) {
     const arquivos = event.target.files;
-    console.log("arquivos: ", arquivos);
 
-    const fotos = Array.from(arquivos).map((arquivo:any) => arquivo.name);
-    this.secondFormGroup?.get('foto')?.setValue(fotos);    
-  }
-
-  // selecionarArquivos(event: any) {
-  //   const arquivos = event.target.files;
-  //   console.log("arquivos: ", arquivos);
-
-  //   const fotos = Array.from(arquivos).map((arquivo:any) => arquivo.name)
-  //   this.secondFormGroup?.get('foto')?.setValue(fotos);    
-  // }
-
-  // selecionarArquivos(event: any) {
-  //   const arquivos = event.target.files;
-  //   console.log("arquivos, fotos",arquivos);
-
-  //   const formData = new FormData(); 
-    
-  //   const fotos = Array.from(arquivos).map(
-  //     (file:any) => {
-  //     formData.append("foto", file);    
-  //     }
-  //     )
-  //   this.secondFormGroup?.get('foto')?.setValue(fotos);    
-  // }
+    for(let arquivo of arquivos) {
+      let reader = new FileReader();
+      reader.onload = (e:any) => {
+        this.foto.push(this.createItem({
+          file: arquivo,
+          url: e.target.result
+        }))
+      }
+      reader.readAsDataURL(arquivo);
+    } 
+    }
 
   cadastrarHospedagem() {
     const hospedagem: Acomodacao = {
@@ -102,10 +86,29 @@ export class CadastroHospedagemComponent implements OnInit {
       valor: this.secondFormGroup?.get('valor')?.value,
       descricao: this.secondFormGroup?.get('descricao')?.value,
       especificacao: this.secondFormGroup?.get('especificacao')?.value,
-      foto: this.secondFormGroup?.get('foto')?.value,
+      foto: this.foto.value,
     };
 
-    this.acomodacaoService.cadastrarHospedagem(hospedagem).subscribe(
+    const formData = new FormData();
+    formData.append("id_usuario", this.idUsuario);
+    formData.append("nome", this.secondFormGroup?.get('nome')?.value);
+    formData.append("endereco", this.firstFormGroup?.get('endereco')?.value);
+    formData.append("numero", this.firstFormGroup?.get('numero')?.value);
+    formData.append("complemento", this.firstFormGroup?.get('complemento')?.value);
+    formData.append("bairro", this.firstFormGroup?.get('bairro')?.value);
+    formData.append("cidade", this.firstFormGroup?.get('cidade')?.value);
+    formData.append("estado", this.firstFormGroup?.get('estado')?.value);
+    formData.append("cep", this.firstFormGroup?.get('cep')?.value);
+    formData.append("valor", this.secondFormGroup?.get('valor')?.value);
+    formData.append("descricao", this.secondFormGroup?.get('descricao')?.value);
+    formData.append("especificacao", this.secondFormGroup?.get('especificacao')?.value);
+    console.log("cidade: ", this.secondFormGroup?.get('cidade')?.value);
+    
+    for(let foto of this.foto.value) {
+      formData.append("foto", foto.file);
+    }
+
+    this.acomodacaoService.cadastrarHospedagem(formData).subscribe(
       (hospedagem) => {
         console.log(hospedagem);
         

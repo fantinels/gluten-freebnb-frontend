@@ -40,7 +40,7 @@
             </mat-form-field>
             <mat-form-field class="example-full-width">
                 <mat-label>Senha</mat-label>
-                <input matInput [type]="hidePassword ? 'password' : 'text'" [disabled]="isDisable" value="{{ user.senha }}" [(ngModel)]="user.senha" name="senha">
+                <input matInput [type]="hidePassword ? 'password' : 'text'" [disabled]="isDisable" value="{{ user.senha }}" [(ngModel)]="user.senha" name="senha" minlength="6" maxlength="6">
                 <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.title]="hidePassword ? 'Mostrar senha' : 'Esconder senha'">
                     <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
                 </button>

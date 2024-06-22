@@ -13,6 +13,9 @@ export class CadastroUsuarioComponent implements OnInit {
 
   hidePassword = true;
 
+  errorMessage: string = '';
+
+
   atualizarPagina() {
     this.router.navigate(['/home'])
       .then( () => {
@@ -39,27 +42,25 @@ export class CadastroUsuarioComponent implements OnInit {
     this.cadastroForm = this.fb.group({
       nome: ['', [Validators.required]],
       sobrenome: ['', [Validators.required]],
-      cpf: ['', [Validators.required, Validators.maxLength(11)]],
+      cpf: ['', [Validators.required, Validators.maxLength(11), Validators.minLength(11)]],
       email: ['', [Validators.required, Validators.email]],
-      senha: ['', [Validators.required, Validators.minLength(6)]],
+      senha: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]],
       tipo: ['', [Validators.required]]
     });
   }
 
   cadastrarUsuario(): void {
     if (this.cadastroForm.valid) {
-      this.usuarioService.cadastrarUsuario(this.cadastroForm.value)
-        .pipe(
-          catchError(error => {
-            console.error('Erro ao cadastrar usuário', error);
-            throw error
-          })
-        )
-        .subscribe(usuario => {
+      this.usuarioService.cadastrarUsuario(this.cadastroForm.value).subscribe(
+        (usuario) => {
           sessionStorage.setItem('usuario.nome', usuario.nome);
           sessionStorage.setItem('usuario.id', usuario.id);
-      });
-    }
+        },
+        error => {
+          this.errorMessage = 'Verifique os dados informados!';
+        }
+      );
+      }
   }
 
   cadastrarUsuarioEHospedagem(): void {
