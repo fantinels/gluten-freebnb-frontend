@@ -10,7 +10,7 @@
 }
 
 .secao-fotos {
-    max-width: 90vw;
+    width: 90vw;
     height: 40vh;
     margin-top: 40px;
     display: flex;
@@ -22,9 +22,16 @@
 }
 
 .div-fotos {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.349);
     width: 20cap;
     height: 20cap;
+    border-radius: 5px;
+}
+
+.div-fotos img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
 }
 
 .detalhes-reserva {

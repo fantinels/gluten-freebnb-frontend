@@ -5,39 +5,21 @@
 
 <main class="container">
     <section class="secao-fotos">
-        <div class="div-fotos">Foto 1</div>
-        <div class="div-fotos">Foto 2</div>
-        <div class="div-fotos">Foto 3</div>
-        <div class="div-fotos">Foto 4</div>
-        <div class="div-fotos">Foto 5</div>
-        <div class="div-fotos">Foto 6</div>
-        <div class="div-fotos">Foto 7</div>
-        <div class="div-fotos">Foto 8</div>
-        <div class="div-fotos">Foto 9</div>
-        <div class="div-fotos">Foto 10</div>
-        <!-- <app-fotos-hospedagem></app-fotos-hospedagem> -->
+        <div class="div-fotos" *ngFor="let foto of fotosTratadas">
+            <img src="{{foto}}" alt="imagem da hospedagem">
+        </div>
     </section>
 
     <div class="detalhes-reserva">
         <section class="detalhes">
-            <h1 class="nome-hospedagem">Nome hospedagem {{hospedagem.nome}}</h1>
-            <h3 class="especificacao-hospedagem">Especificação hospedagem {{hospedagem.especificacao}}</h3>
+            <h1 class="nome-hospedagem">
+                {{hospedagem.nome}}
+            </h1>
+            <h3 class="especificacao-hospedagem">
+                {{hospedagem.especificacao}}
+            </h3>
             <p class="descricao-hospedagem">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ornare ex ut elementum viverra.
-                Quisque dui orci, pretium eget arcu in, laoreet eleifend diam. Nullam blandit luctus enim.
-                Suspendisse vel urna sem. Sed eu quam in erat faucibus consectetur vel ut nisi.
-                Curabitur purus magna, cursus eu pretium a, tincidunt in diam. Mauris nulla ipsum, interdum sit amet consectetur ac, sollicitudin in orci.
-                In finibus vulputate libero, sed rhoncus orci. Aliquam pulvinar dolor sed suscipit finibus. Cras laoreet egestas interdum.
-                Nam iaculis sapien sem, eget egestas elit imperdiet sed. Nullam et turpis nunc.
-                Praesent et risus non sapien rhoncus tempus. Donec consequat gravida posuere.
-                Curabitur id sapien varius, gravida dolor id, imperdiet nisl. Suspendisse quis molestie nunc, vel cursus augue.
-                Nullam vestibulum arcu at justo venenatis luctus. Nullam et sapien eu nibh fringilla suscipit.
-                Aenean blandit nulla quis libero ultricies cursus. Aenean sed feugiat libero. Duis tempus vehicula mi non rutrum.
-                Morbi auctor, augue sit amet varius malesuada, metus nisi lobortis ex, ut facilisis eros lorem ac leo.
-                Morbi vel erat sit amet elit ultricies aliquet eget eu ipsum. Nullam facilisis libero sit amet dui finibus viverra.
-                Integer tellus orci, commodo quis lorem non, aliquam fermentum quam.
-                Praesent tempus sapien sit amet nisl commodo, vitae blandit sapien cursus. Quisque lacinia consectetur neque eu ullamcorper.
-                Fusce et orci vel ante venenatis condimentum. Proin ut imperdiet turpis. Mauris quis vulputate purus.
+                {{hospedagem.descricao}}
             </p>
         </section>
         <section class="reserva">
@@ -45,14 +27,14 @@
                 <div class="container-quantidades">
                     <div class="quantidades">
                         <label for="qt_hospedes">Quantidade de hóspedes</label>
-                        <input type="number" id="qt_hospedes">    
+                        <input type="number" id="qt_hospedes" name="qt_hospedes">    
                     </div>
                     <div class="quantidades">
                         <label for="qt_dias">Quantidade de dias</label>
-                        <input type="number" id="qt_dias">
+                        <input type="number" id="qt_dias" name="qt_dias">
                     </div>
                 </div>
-                <p class="preco">Valor: R$ 200 / noite</p>
+                <p class="preco">Valor: R$ {{hospedagem.valor}} / noite</p>
                 <a class="btn-reservar">reservar</a>
             </form>
         </section>

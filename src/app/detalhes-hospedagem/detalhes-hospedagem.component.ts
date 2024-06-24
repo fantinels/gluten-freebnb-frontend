@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AcomodacaoService } from '../acomodacao.service';
 
@@ -8,33 +8,29 @@ import { AcomodacaoService } from '../acomodacao.service';
   styleUrl: './detalhes-hospedagem.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DetalhesHospedagemComponent implements OnInit {
+export class DetalhesHospedagemComponent {
   id: any;
   hospedagem: any = '';
+  fotosTratadas: string[] = [];
 
-  constructor(private activatedRoute: ActivatedRoute, private acomodacaoService: AcomodacaoService) {
+
+  constructor(private activatedRoute: ActivatedRoute, private acomodacaoService: AcomodacaoService, private changeDetectorRef: ChangeDetectorRef) {
 
     this.activatedRoute.params.subscribe((params) => {
       this.id = params['id'];
     })
 
-    // this.acomodacaoService.buscarHospedagemPorIdHospedagem(this.id).subscribe((hosp) => {
-    //   this.hospedagem = hosp;
-    //   // console.log("hosp", hosp);
-    //   console.log("hospedagem", this.hospedagem);
-    // })
-    
-  }
-
-  ngOnInit(): void {
     this.acomodacaoService.buscarHospedagemPorIdHospedagem(this.id).subscribe((hosp) => {
       this.hospedagem = hosp;
-      // console.log("hosp", hosp);
-      console.log("hospedagem", this.hospedagem);
-      console.log("foto", this.hospedagem.foto);
-      console.log("nome", this.hospedagem.nome);
+      if(this.hospedagem.foto.indexOf('{') < 0) {
+        this.fotosTratadas.push(this.hospedagem.foto);
+      } else {
+        this.hospedagem.foto = this.hospedagem.foto.replace(/{|}|"/g, '');
+        this.fotosTratadas = this.hospedagem.foto.split(',');
+      }
+      this.changeDetectorRef.detectChanges();
     })
+    
   }
-
 
 }
