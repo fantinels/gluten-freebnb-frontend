@@ -110,6 +110,10 @@
     -webkit-appearance: none;
 }
 
+.preco {
+    margin-bottom: 10px;
+}
+
 .btn-reservar {
     background-color: red;
     display: inline-block;
