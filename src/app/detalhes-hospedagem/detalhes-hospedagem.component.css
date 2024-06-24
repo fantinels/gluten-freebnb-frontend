@@ -1,0 +1,130 @@
+.container {
+    background-color: white;
+    max-width: 100vw;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 4px 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.secao-fotos {
+    max-width: 90vw;
+    height: 40vh;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 5px;
+    overflow: auto;
+}
+
+.div-fotos {
+    border: 1px solid black;
+    width: 20cap;
+    height: 20cap;
+}
+
+.detalhes-reserva {
+    width: 100%;
+    margin: 50px 0;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.detalhes {
+    border: 2px solid rgba(228, 228, 228, 0.472);
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    width: 48%;
+    height: 70%;
+    overflow: auto;
+}
+
+.nome-hospedagem,
+.especificacao-hospedagem,
+.descricao-hospedagem {
+    margin-bottom: 10px;
+}
+
+.descricao-hospedagem {
+    text-align: justify;
+}
+
+.reserva {
+    width: 48%;
+    text-align: center;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.container-quantidades {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.quantidades {
+    border-bottom: 2px solid rgba(228, 228, 228, 0.472);
+    width: 50%;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.quantidades:first-child {
+    border-right: 2px solid rgb(228, 228, 228, 0.472);
+}
+
+.quantidades input {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+#qt_hospedes,
+#qt_dias {
+    border: 1px solid rgba(180, 180, 180, 0.635);
+    appearance: none; /* Desativa as setas padrão */
+    border-radius: 5px;
+    width: 5rem;
+    height: 2.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+}
+    
+#qt_hospedes::-webkit-inner-spin-button,
+#qt_hospedes::-webkit-outer-spin-button,  
+#qt_dias::-webkit-inner-spin-button,
+#qt_dias::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.btn-reservar {
+    background-color: red;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 70%;
+    padding: 15px 20px;
+    text-align: center;
+    letter-spacing: 0.15rem;
+    font-size: 1.4rem;
+    transition: 0.4s;
+}
+
+.btn-reservar:hover {
+    background-color: rgb(173, 3, 3);
+
+}
