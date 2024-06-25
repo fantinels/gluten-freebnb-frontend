@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { CodigoqrComponent } from '../codigoqr/codigoqr.component';
 
 @Component({
   selector: 'app-dialog-exemplo',
@@ -8,14 +9,14 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class DialogExemploComponent {
 
-  constructor(public dialogRef: MatDialogRef<DialogExemploComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(public dialogRef: MatDialogRef<DialogExemploComponent>, public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   whatsApp(): void {
     this.dialogRef.close();
   }
 
   gerarQRCode(): void {
-    this.dialogRef.close(this.data);
+    this.dialog.open(CodigoqrComponent);
   }
 
 

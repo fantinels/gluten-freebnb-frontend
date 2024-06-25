@@ -32,6 +32,8 @@ import { DetalhesHospedagemComponent } from './detalhes-hospedagem/detalhes-hosp
 import { DialogExemploComponent } from './dialog-exemplo/dialog-exemplo.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QRCodeModule } from 'angularx-qrcode';
+import { CodigoqrComponent } from './codigoqr/codigoqr.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     PerfilUsuarioComponent,
     DetalhesHospedagemComponent,
-    DialogExemploComponent
+    DialogExemploComponent,
+    CodigoqrComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +70,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatTooltip,
     BrowserAnimationsModule,
     MatDialogModule,
+    QRCodeModule
   ],
   providers: [
     provideAnimationsAsync()
