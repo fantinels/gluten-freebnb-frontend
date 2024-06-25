@@ -9,7 +9,7 @@ export class CodigoqrComponent {
   meuQrCode: string = '';
   
   constructor() {
-    this.meuQrCode = '256444d2-e763-4669-b279-2f17d218e6b6';
+    this.meuQrCode = 'Hospedagem reservada com sucesso!';
   }
 
 }
