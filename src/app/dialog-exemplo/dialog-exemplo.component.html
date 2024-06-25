@@ -1,0 +1,22 @@
+<div class="modal">
+    <h1 class="titulo">Resumo da reserva</h1>
+    <div class="conteudo">
+        <div class="quantidades">
+            <label for="qt_hospedes">Quantidade de hóspedes</label>
+            <input type="number" id="qt_hospedes" name="qt_hospedes" [(ngModel)]="data.info1" disabled>    
+        </div>
+        <div class="quantidades">
+            <label for="qt_dias">Quantidade de dias</label>
+            <input type="number" id="qt_dias" name="qt_dias" [(ngModel)]="data.info2" disabled>
+        </div>
+        <div class="quantidades">
+            <label>Valor</label>
+            <p>R$ {{data.valor}} / noite</p>
+        </div>
+    </div>
+    <div class="botoes">
+        <a class="btn-falar" (click)="whatsApp()">Falar com anfitrião</a>
+        <a class="btn-reservar" (click)="gerarQRCode()">Confirmar reserva</a>
+    </div>
+
+</div>

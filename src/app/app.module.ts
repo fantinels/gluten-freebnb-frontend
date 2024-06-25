@@ -29,6 +29,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltip } from '@angular/material/tooltip';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { DetalhesHospedagemComponent } from './detalhes-hospedagem/detalhes-hospedagem.component';
+import { DialogExemploComponent } from './dialog-exemplo/dialog-exemplo.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import { DetalhesHospedagemComponent } from './detalhes-hospedagem/detalhes-hosp
     FiltroPesquisaPipe,
     LoginComponent,
     PerfilUsuarioComponent,
-    DetalhesHospedagemComponent
+    DetalhesHospedagemComponent,
+    DialogExemploComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,9 @@ import { DetalhesHospedagemComponent } from './detalhes-hospedagem/detalhes-hosp
     CommonModule,
     MatIconModule,
     MatMenuModule,
-    MatTooltip
+    MatTooltip,
+    BrowserAnimationsModule,
+    MatDialogModule,
   ],
   providers: [
     provideAnimationsAsync()

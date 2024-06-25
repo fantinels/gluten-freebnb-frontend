@@ -1,8 +1,3 @@
-<!-- <p>detalhes-hospedagem works!</p>
-<h1>ID HOSPEDAGEM: {{id}}</h1>
-
-<h1>{{hospedagem.nome}}</h1> -->
-
 <main class="container">
     <section class="secao-fotos">
         <div class="div-fotos" *ngFor="let foto of fotosTratadas">
@@ -26,26 +21,20 @@
             </p>
         </section>
         <section class="reserva">
-            <form>
+            <form #form="ngForm">
                 <div class="container-quantidades">
                     <div class="quantidades">
                         <label for="qt_hospedes">Quantidade de hóspedes</label>
-                        <input type="number" id="qt_hospedes" name="qt_hospedes">    
+                        <input type="number" id="qt_hospedes" name="qt_hospedes" [(ngModel)]="info1" required>    
                     </div>
                     <div class="quantidades">
                         <label for="qt_dias">Quantidade de dias</label>
-                        <input type="number" id="qt_dias" name="qt_dias">
+                        <input type="number" id="qt_dias" name="qt_dias" [(ngModel)]="info2" required>
                     </div>
                 </div>
                 <p class="preco">Valor: R$ {{hospedagem.valor}} / noite</p>
-                <a class="btn-reservar">reservar</a>
+                <a class="btn-reservar" (click)="openDialog(hospedagem.valor)">reservar</a>
             </form>
         </section>
     </div>
-
 </main>
-
-
-<!-- <mat-card class="card" appearance="outlined">
-    <mat-card-content>Simple cardSimple cardSimple cardSimple cardSimple cardSimple cardSimple cardSimple cardSimple card</mat-card-content>
-</mat-card> -->

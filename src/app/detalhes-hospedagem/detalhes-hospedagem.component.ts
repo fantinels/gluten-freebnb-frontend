@@ -2,6 +2,9 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/
 import { ActivatedRoute } from '@angular/router';
 import { AcomodacaoService } from '../acomodacao.service';
 
+import { MatDialog } from '@angular/material/dialog';
+import { DialogExemploComponent } from '../dialog-exemplo/dialog-exemplo.component';
+
 @Component({
   selector: 'app-detalhes-hospedagem',
   templateUrl: './detalhes-hospedagem.component.html',
@@ -13,8 +16,19 @@ export class DetalhesHospedagemComponent {
   hospedagem: any = '';
   fotosTratadas: string[] = [];
 
+  info1: number = 0;
+  info2: number = 0;
 
-  constructor(private activatedRoute: ActivatedRoute, private acomodacaoService: AcomodacaoService, private changeDetectorRef: ChangeDetectorRef) {
+  openDialog(valor: string): void {
+    const dialogRef = this.dialog.open(DialogExemploComponent, {
+      width: '40vw',
+      data: { info1: this.info1, info2: this.info2, valor: valor }
+    });
+  }
+
+
+
+  constructor(private activatedRoute: ActivatedRoute, private acomodacaoService: AcomodacaoService, private changeDetectorRef: ChangeDetectorRef, public dialog: MatDialog) {
 
     this.activatedRoute.params.subscribe((params) => {
       this.id = params['id'];

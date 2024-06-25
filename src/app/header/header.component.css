@@ -67,7 +67,7 @@ header {
 
 /* Media queries para ajustar o layout em telas menores */
 
-/* Para telas menores que 768px */
+/* Para telas menores que 1000px */
 @media screen and (max-width: 1000px) {  
     .logotipo {
         margin-left: 15px; /* Reduz a margem esquerda do logotipo */
