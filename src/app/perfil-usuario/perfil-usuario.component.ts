@@ -54,6 +54,7 @@ export class PerfilUsuarioComponent {
   desabilitarInputs(): void {
     this.isDisable = true;
     this.mostrarBotao = false;
+    window.location.reload()
   }
 
   editarUsuario() {
@@ -98,10 +99,6 @@ export class PerfilUsuarioComponent {
         }
       )
     }
-  }
-
-  editarHospedagem(id: any): void {
-    this.router.navigate([`hospedagem/${id}/editar`])
   }
 
 }

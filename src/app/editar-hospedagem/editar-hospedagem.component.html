@@ -1,7 +1,7 @@
 <main class="container">
     <section class="secao-fotos">
         <div class="div-fotos" *ngFor="let foto of fotosTratadas">
-            <img src="{{foto}}" alt="imagem da hospedagem">
+            <a href="{{foto}}"><img src="{{foto}}" alt="imagem da hospedagem"></a>
         </div>
     </section>
     <div class="informacoes-hospedagem">
@@ -45,7 +45,7 @@
                 <mat-icon>edit</mat-icon>
                 Editar
             </button>
-            <button class="btn-salvar-hospedagem" *ngIf="mostrarBotao" (click)="editarHospedagem()" mat-fab matTooltip="Salvar alterações" extended>
+            <button class="btn-salvar-hospedagem" *ngIf="mostrarBotao" (click)="editarHospedagem(id_hospedagem)" mat-fab matTooltip="Salvar alterações" extended>
                 <mat-icon>check</mat-icon>
                 Salvar
                 </button>

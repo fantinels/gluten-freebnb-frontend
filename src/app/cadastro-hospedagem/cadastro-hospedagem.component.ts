@@ -9,6 +9,7 @@ import {MatSelectModule} from '@angular/material/select'
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AcomodacaoService } from '../acomodacao.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-hospedagem',
@@ -24,7 +25,7 @@ export class CadastroHospedagemComponent implements OnInit {
 
   isEditable = true;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private acomodacaoService: AcomodacaoService) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private acomodacaoService: AcomodacaoService, private router: Router) {
     
     // idUsuario é o ID do usuário que acabou de se cadastrar:
     this.idUsuario = this.acomodacaoService.getUsuarioId();
@@ -102,7 +103,6 @@ export class CadastroHospedagemComponent implements OnInit {
     formData.append("valor", this.secondFormGroup?.get('valor')?.value);
     formData.append("descricao", this.secondFormGroup?.get('descricao')?.value);
     formData.append("especificacao", this.secondFormGroup?.get('especificacao')?.value);
-    console.log("cidade: ", this.secondFormGroup?.get('cidade')?.value);
     
     for(let foto of this.foto.value) {
       formData.append("foto", foto.file);
@@ -110,12 +110,9 @@ export class CadastroHospedagemComponent implements OnInit {
 
     this.acomodacaoService.cadastrarHospedagem(formData).subscribe(
       (hospedagem) => {
-        console.log(hospedagem);
-        
+        this.router.navigate(['/perfil'])
       }
     )
-
-
 }
 
 }
