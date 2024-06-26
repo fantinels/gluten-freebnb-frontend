@@ -3,19 +3,19 @@
         <div class="titulo-btn">
             <p>Perfil</p>
             <div>
-                <button class="btn-editar-perfil" *ngIf="!mostrarBotao" (click)="habilitarInputs()" mat-fab extended>
+                <button class="btn-editar-perfil" *ngIf="!mostrarBotao" (click)="habilitarInputs()" mat-fab matTooltip="Editar cadastro" extended>
                     <mat-icon>edit</mat-icon>
                     Editar
                 </button>
-                <button class="btn-deletar-perfil" *ngIf="mostrarBotao" (click)="excluirPerfil()" mat-fab extended title="Excluir cadastro">
+                <button class="btn-deletar-perfil" *ngIf="mostrarBotao" (click)="excluirPerfil()" mat-fab matTooltip="Excluir cadastro" extended>
                     <mat-icon>delete</mat-icon>
                     Excluir
                 </button>
-                <button class="btn-salvar-perfil" *ngIf="mostrarBotao" (click)="enviarDadosApi()" mat-fab extended>
+                <button class="btn-salvar-perfil" *ngIf="mostrarBotao" (click)="editarUsuario()" mat-fab matTooltip="Salvar alterações" extended>
                     <mat-icon>check</mat-icon>
                     Salvar
                 </button>
-                <button class="btn-cancelar" *ngIf="mostrarBotao" (click)="desabilitarInputs()" mat-fab extended>
+                <button class="btn-cancelar" *ngIf="mostrarBotao" (click)="desabilitarInputs()" mat-fab matTooltip="Cancelar edição" extended>
                     <mat-icon>close</mat-icon>
                     Cancelar
                 </button>
@@ -69,7 +69,7 @@
                     <a class="btns-rodape" matTooltip="Excluir" (click)="excluirHospedagem(acomodacao.id)">
                         <mat-icon>delete</mat-icon>
                     </a>
-                    <a routerLink="/hospedagem/{{acomodacao.id}}" class="btns-rodape" matTooltip="Editar">
+                    <a routerLink="/hospedagem/{{acomodacao.id}}/editar" class="btns-rodape" matTooltip="Editar">
                         <mat-icon>edit</mat-icon>
                     </a>
                 </div>

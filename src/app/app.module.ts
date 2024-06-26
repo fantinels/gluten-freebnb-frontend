@@ -34,6 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { QRCodeModule } from 'angularx-qrcode';
 import { CodigoqrComponent } from './codigoqr/codigoqr.component';
+import { EditarHospedagemComponent } from './editar-hospedagem/editar-hospedagem.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { CodigoqrComponent } from './codigoqr/codigoqr.component';
     PerfilUsuarioComponent,
     DetalhesHospedagemComponent,
     DialogExemploComponent,
-    CodigoqrComponent
+    CodigoqrComponent,
+    EditarHospedagemComponent
   ],
   imports: [
     BrowserModule,

@@ -31,10 +31,6 @@ export class AcomodacaoService {
     return usuarioId;
   }
 
-  // cadastrarHospedagem(acomodacao: any): Observable<any> {
-  //   return this.http.post<any>(`${BASE_API}/${this.getUsuarioId()}`, acomodacao, httpOptions);
-  // }
-
   listarHospedagemPorIdUsuario(): Observable<any[]> {
     return this.http.get<any[]>(`${BASE_API}/user/${this.getUsuarioId()}`)
   }
@@ -53,6 +49,12 @@ export class AcomodacaoService {
 
     return this.http.post(`${BASE_API}/${this.getUsuarioId()}`, formData, { headers: headers });
 
+  }
+
+  editarHospedagem(id: any, formData: FormData): Observable<any> {
+    const headers = new HttpHeaders({ 'enctype': 'multipart/form-data' });
+
+    return this.http.put(`${BASE_API}/${id}`, formData, { headers: headers });
   }
 
 }

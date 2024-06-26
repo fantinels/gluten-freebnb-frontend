@@ -13,7 +13,6 @@ export class PerfilUsuarioComponent {
   mostrarBotao = false;
   todosHabilitados = true;
 
-
   hidePassword = true;
 
   isDisable = true;
@@ -57,7 +56,7 @@ export class PerfilUsuarioComponent {
     this.mostrarBotao = false;
   }
 
-  enviarDadosApi() {
+  editarUsuario() {
     this.usuarioService.editarUsuario(this.user.id, this.user).subscribe(
       (usuario) => {
         this.user = usuario
@@ -96,9 +95,13 @@ export class PerfilUsuarioComponent {
           .then( () => {
             window.location.reload();
           })
-  
         }
       )
     }
   }
+
+  editarHospedagem(id: any): void {
+    this.router.navigate([`hospedagem/${id}/editar`])
+  }
+
 }

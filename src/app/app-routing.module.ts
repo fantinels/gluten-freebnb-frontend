@@ -7,6 +7,7 @@ import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.co
 import { LoginComponent } from './login/login.component';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
 import { DetalhesHospedagemComponent } from './detalhes-hospedagem/detalhes-hospedagem.component';
+import { EditarHospedagemComponent } from './editar-hospedagem/editar-hospedagem.component';
 
 const routes: Routes = [
   { path: 'home', component: ListaAcomodacoesComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'perfil', component: PerfilUsuarioComponent },
   { path: 'hospedagem/:id/detalhes', component: DetalhesHospedagemComponent },
+  { path: 'hospedagem/:id/editar', component: EditarHospedagemComponent },
 ];
 
 @NgModule({
