@@ -4,17 +4,17 @@
     </div>
 
     <div class="links-centro">
-        <a routerLink="home">acomodações</a>
-        <a>experiências</a>
-        <a routerLink="quem-somos">quem somos</a>
+        <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="btn_links-centro">acomodações</a>
+        <a class="btn_links-centro">experiências</a>
+        <a routerLink="/quem-somos" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="btn_links-centro">quem somos</a>
     </div>
 
     <div *ngIf="!nomeUsuario" class="links-direita">
-        <a routerLink="login" class="btn_login">login</a>
-        <a routerLink="cadastro" class="btn_cadastrar">cadastre-se</a>
+        <a routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="btn_login">login</a>
+        <a routerLink="/cadastro" class="btn_cadastrar">cadastre-se</a>
     </div>
 
-    <!-- Este botões aparecem em telas menores (responsividade): -->
+    <!-- Estes botões aparecem em telas menores (responsividade): -->
     <div *ngIf="!nomeUsuario" class="menu-burger">
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
         <mat-icon>menu</mat-icon>
