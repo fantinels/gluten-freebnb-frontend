@@ -28,3 +28,32 @@ td {
 .campo-preco {
     margin-left: 60px;
 }
+
+input[type='file'] {
+    display: none;
+}
+
+.label-upload {
+    background-color: rgb(169, 169, 64);
+    padding: 13px 20px;
+    margin-bottom: 10px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);;
+    width: max-content;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 0.0892857143em;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.label-upload:hover {
+    background-color: rgb(204, 204, 88);
+}
+
+.check-icon {
+    margin-left: 18px;
+}

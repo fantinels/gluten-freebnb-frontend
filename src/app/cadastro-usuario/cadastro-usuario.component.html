@@ -5,30 +5,30 @@
       <ng-template matStepLabel>Preencha seus dados</ng-template>
       <mat-form-field class="example-full-width">
         <mat-label>Nome</mat-label>
-        <input matInput formControlName="nome" placeholder="Nome" required>
+        <input type="text" matInput formControlName="nome" placeholder="Nome" required>
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Sobrenome</mat-label>
-        <input matInput formControlName="sobrenome" placeholder="Sobrenome" required>
+        <input type="text" matInput formControlName="sobrenome" placeholder="Sobrenome" required>
       </mat-form-field>
       <table class="example-full-width" cellspacing="0"><tr>
         <td>
           <mat-form-field class="example-full-width">
             <mat-label>CPF</mat-label>
-            <input matInput #cpfCode maxlength="11" formControlName="cpf" placeholder="Somente os números" required>
+            <input type="text" matInput #cpfCode maxlength="11" formControlName="cpf" placeholder="Somente os números" required>
             <mat-hint align="end">{{cpfCode.value.length}} / 11</mat-hint>
           </mat-form-field>
         </td>
       </tr></table>
       <mat-form-field class="example-full-width">
         <mat-label>E-mail</mat-label>
-        <input matInput formControlName="email" placeholder="email@email..." required>
+        <input type="email" matInput formControlName="email" placeholder="email@email..." required>
       </mat-form-field>
       <table class="example-full-width" cellspacing="0"><tr>
       <td>
         <mat-form-field class="example-full-width">
           <mat-label>Senha</mat-label>
-          <input matInput [type]="hidePassword ? 'password' : 'text'" #passCode maxlength="6" minlength="6" formControlName="senha" placeholder="Mínimo 6 caracteres" required>
+          <input type="password" matInput [type]="hidePassword ? 'password' : 'text'" #passCode maxlength="6" minlength="6" formControlName="senha" placeholder="Mínimo 6 caracteres" required>
           <mat-hint align="end">{{passCode.value.length}} / 6</mat-hint>
           <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.title]="hidePassword ? 'Mostrar senha' : 'Esconder senha'">
             <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
@@ -46,7 +46,7 @@
       </mat-form-field>
       <div>
         <!-- Se o tipo de cadastro for "Hóspede", exibe o botão "Salvar", caso contrário, exibe o botão "Próximo" -->
-        <button mat-button matStepperNext *ngIf="isTipoHospede(); else proximoButton" (click)="cadastrarUsuario()">Salvar</button>
+        <button mat-button matStepperNext *ngIf="isTipoHospede(); else proximoButton" (click)="cadastrarUsuario()" [disabled]="!cadastroForm.valid">Salvar</button>
         <ng-template #proximoButton>
           <button mat-button matStepperNext routerLink="/cadastro/cadastro-hospedagem" (click)="cadastrarUsuarioEHospedagem()" [disabled]="!cadastroForm.valid">Próximo</button>
         </ng-template>

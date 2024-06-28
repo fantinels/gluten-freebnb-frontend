@@ -76,12 +76,11 @@ export class EditarHospedagemComponent implements OnInit {
   desabilitarInputs(): void {
     this.isDisable = true;
     this.mostrarBotao = false;
-    this.changeDetectorRef.detectChanges();
+    window.location.reload()
   }
 
   cancelarEditarFotos(): void {
     this.mostrarBotaoFotos = false;
-    this.changeDetectorRef.detectChanges();
   }
 
   excluirHospedagem(id: any): void {
@@ -155,6 +154,4 @@ export class EditarHospedagemComponent implements OnInit {
       }
     )
   }
-
-
 }

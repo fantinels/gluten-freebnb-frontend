@@ -86,9 +86,8 @@
                     <mat-hint align="end">{{especMax.value.length}} / 30</mat-hint>
                 </mat-form-field>
             </p>
-            <p>
-                <input type="file" multiple (change)="selecionarArquivos($event)" accept="image/x-png,image/jpeg">
-            </p>
+            <label for="upload" class="label-upload">Upload<mat-icon class="check-icon">upload</mat-icon></label>
+            <input id="upload" type="file" multiple (change)="selecionarArquivos($event)" accept="image/x-png,image/jpeg">    
             <div>
                 <button mat-button matStepperPrevious>Voltar</button>
                 <button mat-button matStepperNext>Próximo</button>
