@@ -9,8 +9,7 @@ const BASE_API = "https://gluten-freebnb-backend.onrender.com/api/hospedagem";
 // somente utilizado para POST e PUT:
 const httpOptions = {
   headers: new HttpHeaders({
-    // 'Content-Type':  'application/json',
-    'Content-Type': 'multipart/form-data; boundary=something',
+    'Content-Type':  'application/json',
   })
 };
 
@@ -44,17 +43,18 @@ export class AcomodacaoService {
   }
 
   cadastrarHospedagem(formData: FormData): Observable<any> {
-
     const headers = new HttpHeaders({ 'enctype': 'multipart/form-data' });
-
     return this.http.post(`${BASE_API}/${this.getUsuarioId()}`, formData, { headers: headers });
-
   }
 
-  editarHospedagem(id: any, formData: FormData): Observable<any> {
-    const headers = new HttpHeaders({ 'enctype': 'multipart/form-data' });
+  editarHospedagem(id: any, hospedagem: any): Observable<any> {
+    return this.http.put(`${BASE_API}/${id}`, hospedagem, httpOptions);
+  }
 
-    return this.http.put(`${BASE_API}/${id}`, formData, { headers: headers });
+  editarFotosHospedagem(id: any, formData: FormData): Observable<any> {
+    const headers = new HttpHeaders({ 'enctype': 'multipart/form-data' });
+    return this.http.put(`${BASE_API}/foto-hosp/${id}`, formData, { headers: headers })
+
   }
 
 }

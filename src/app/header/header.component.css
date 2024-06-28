@@ -48,6 +48,7 @@ header {
 .active,
 .btn_links-centro:hover,
 .links-direita .btn_login:hover  {
+    padding: 10px 8px;
     border-right: 2px solid red;
     border-left: 2px solid red;
     border-radius: 5px;

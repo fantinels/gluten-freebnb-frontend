@@ -1,9 +1,30 @@
 <main class="container">
-    <section class="secao-fotos">
-        <div class="div-fotos" *ngFor="let foto of fotosTratadas">
-            <a href="{{foto}}"><img src="{{foto}}" alt="imagem da hospedagem"></a>
+    <div class="fotos-e-botoes">
+        <section class="secao-fotos">
+            <div class="div-fotos" *ngFor="let foto of fotosTratadas">
+                <a href="{{foto}}"><img src="{{foto}}" alt="imagem da hospedagem"></a>
+            </div>
+            </section>
+        <div class="area-edicao">
+            <button class="btn-editar-perfil" *ngIf="!mostrarBotaoFotos" (click)="editarFotos()" mat-fab matTooltip="Editar fotos" matTooltipPosition="below" extended>
+                <mat-icon>edit</mat-icon>
+                Editar
+            </button>
+
+            <button class="btn-deletar-hospedagem" *ngIf="mostrarBotaoFotos" (click)="cancelarEditarFotos()" mat-fab matTooltip="Cancelar edição" matTooltipPosition="above" extended>
+                <mat-icon>close</mat-icon>
+                Cancelar
+            </button>
+                            
+            <label *ngIf="mostrarBotaoFotos" for="upload" class="label-upload">Upload<mat-icon class="check-icon">upload</mat-icon></label>
+            <input id="upload" type="file" multiple value="" (change)="selecionarArquivos($event)" accept="image/x-png,image/jpeg">
+
+            <button class="btn-salvar-hospedagem" *ngIf="mostrarBotaoFotos" (click)="editarFotosHospedagem()" mat-fab matTooltip="Salvar fotos" matTooltipPosition="below" extended>
+                <mat-icon>check</mat-icon>
+                Salvar
+            </button>
         </div>
-    </section>
+    </div>
     <div class="informacoes-hospedagem">
         <form class="endereco-hospedagem">
             <mat-form-field class="example-full-width">
