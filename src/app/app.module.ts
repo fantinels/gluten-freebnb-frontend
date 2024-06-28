@@ -35,6 +35,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { QRCodeModule } from 'angularx-qrcode';
 import { CodigoqrComponent } from './codigoqr/codigoqr.component';
 import { EditarHospedagemComponent } from './editar-hospedagem/editar-hospedagem.component';
+import { ExperienciasComponent } from './experiencias/experiencias.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { EditarHospedagemComponent } from './editar-hospedagem/editar-hospedagem
     DetalhesHospedagemComponent,
     DialogExemploComponent,
     CodigoqrComponent,
-    EditarHospedagemComponent
+    EditarHospedagemComponent,
+    ExperienciasComponent
   ],
   imports: [
     BrowserModule,
