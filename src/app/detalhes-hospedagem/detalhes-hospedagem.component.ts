@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AcomodacaoService } from '../acomodacao.service';
 
 import { MatDialog } from '@angular/material/dialog';
 import { DialogExemploComponent } from '../dialog-exemplo/dialog-exemplo.component';
+import { UsuarioService } from '../usuario.service';
 
 @Component({
   selector: 'app-detalhes-hospedagem',
@@ -20,15 +21,22 @@ export class DetalhesHospedagemComponent {
   info2: number = 0;
 
   openDialog(valor: string): void {
-    const dialogRef = this.dialog.open(DialogExemploComponent, {
-      width: '40vw',
-      data: { info1: this.info1, info2: this.info2, valor: valor }
-    });
+    const valorNumerico = parseFloat(valor)
+    if(this.usuarioService.getUsuarioId()) {
+      const dialogRef = this.dialog.open(DialogExemploComponent, {
+        width: '40vw',
+        data: { info1: this.info1, info2: this.info2, valor: valorNumerico }
+      });
+    } else {
+      this.router.navigate(['/login']);
+    }
+    console.log("info 1",this.info1,typeof(this.info1), "info2",this.info2, typeof(this.info2), "valor", valor, typeof(parseInt(valor)));
+    
   }
 
 
 
-  constructor(private activatedRoute: ActivatedRoute, private acomodacaoService: AcomodacaoService, private changeDetectorRef: ChangeDetectorRef, public dialog: MatDialog) {
+  constructor(private activatedRoute: ActivatedRoute, private acomodacaoService: AcomodacaoService, private changeDetectorRef: ChangeDetectorRef, public dialog: MatDialog, private usuarioService: UsuarioService, private router: Router) {
 
     this.activatedRoute.params.subscribe((params) => {
       this.id = params['id'];

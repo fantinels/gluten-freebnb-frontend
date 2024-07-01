@@ -10,8 +10,8 @@
             <input type="number" id="qt_dias" name="qt_dias" [(ngModel)]="data.info2" disabled>
         </div>
         <div class="quantidades">
-            <label>Valor</label>
-            <p>R$ {{data.valor}} / noite</p>
+            <label>Valor total</label>
+            <p>R$ {{data.valor * data.info2}}</p>
         </div>
     </div>
     <div class="botoes">
