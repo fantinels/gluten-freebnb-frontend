@@ -36,6 +36,7 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { CodigoqrComponent } from './codigoqr/codigoqr.component';
 import { EditarHospedagemComponent } from './editar-hospedagem/editar-hospedagem.component';
 import { ExperienciasComponent } from './experiencias/experiencias.component';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -74,10 +75,13 @@ import { ExperienciasComponent } from './experiencias/experiencias.component';
     MatTooltip,
     BrowserAnimationsModule,
     MatDialogModule,
-    QRCodeModule
+    QRCodeModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideNgxMask()
   ],
   bootstrap: [AppComponent]
 })

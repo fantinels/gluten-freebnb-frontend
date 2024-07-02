@@ -23,7 +23,7 @@ export class CadastroHospedagemComponent implements OnInit {
   firstFormGroup: FormGroup = new FormGroup({});
   secondFormGroup: FormGroup = new FormGroup({});
 
-  isEditable = true;
+  isEditable = false;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private acomodacaoService: AcomodacaoService, private router: Router) {
     
@@ -113,6 +113,6 @@ export class CadastroHospedagemComponent implements OnInit {
         this.router.navigate(['/perfil'])
       }
     )
-}
+  }
 
 }

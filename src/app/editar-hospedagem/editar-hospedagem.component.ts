@@ -28,8 +28,6 @@ export class EditarHospedagemComponent implements OnInit {
   constructor(private acomodacaoService: AcomodacaoService, private usuarioService: UsuarioService, private activatedRoute: ActivatedRoute, private changeDetectorRef: ChangeDetectorRef, private router: Router, private formBuilder: FormBuilder) {
     this.activatedRoute.params.subscribe((params) => {
       this.id_hospedagem = params['id'];
-      console.log("id_hosp: ", this.id_hospedagem);
-      
     });
 
     this.acomodacaoService.buscarHospedagemPorIdHospedagem(this.id_hospedagem).subscribe((hosp) => {

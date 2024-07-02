@@ -1,6 +1,6 @@
 
   <mat-stepper linear #stepper>
-    <mat-step [editable]="isEditable">
+    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
     <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Endereço da hospedagem</ng-template>
             <form [formGroup]="firstFormGroup" class="example-form">
@@ -14,7 +14,8 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Número</mat-label>
-                        <input formControlName="numero" matInput placeholder="Ex. 10" required>
+                        <input formControlName="numero" matInput placeholder="Ex. 10" required pattern="\d+">
+                        <mat-error *ngIf="firstFormGroup.get('numero')?.hasError('pattern')">Somente números são permitidos</mat-error>
                     </mat-form-field>
                 </td>
                 <td>
@@ -40,32 +41,32 @@
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>Estado</mat-label>
-                        <input formControlName="estado" matInput placeholder="Ex. RS" required>
+                        <input formControlName="estado" matInput placeholder="Ex. RS" minlength="2" maxlength="2" required pattern="[a-zA-Z\s]+">
+                        <mat-error *ngIf="firstFormGroup.get('estado')?.hasError('pattern')">Somente letras são permitidas</mat-error>
                     </mat-form-field>
                 </td>
                 <td>
                     <mat-form-field class="example-full-width">
                         <mat-label>CEP</mat-label>
-                        <input formControlName="cep" matInput #postalCode maxlength="8" placeholder="Ex. 91340140" required>
-                        <mat-hint align="end">{{postalCode.value.length}} / 8</mat-hint>
+                        <input formControlName="cep" matInput #postalCode placeholder="Ex. 91340140" required mask="00.000-000">
                     </mat-form-field>
                 </td>
             </tr></table>
             </form>      
           <div>
-          <button mat-button matStepperNext>Próximo</button>
+          <button mat-button matStepperNext [disabled]="!firstFormGroup.valid">Próximo</button>
         </div>
       </form>
     </mat-step>
-    <mat-step [editable]="isEditable">
+    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
         <form [formGroup]="secondFormGroup">
             <ng-template matStepLabel>Detalhes da hospedagem</ng-template>
             <table><tr>
                 <td>
                     <mat-form-field>
                         <mat-label>Nome</mat-label>
-                        <input matInput formControlName="nome" #nomeMax maxlength="25" placeholder="Nome da hospedagem" required>
-                        <mat-hint align="end">{{nomeMax.value.length}} / 25</mat-hint>
+                        <input matInput formControlName="nome" #nomeMax maxlength="30" placeholder="Nome da hospedagem" required>
+                        <mat-hint align="end">{{nomeMax.value.length}} / 30</mat-hint>
                     </mat-form-field>
                 </td>
                 <td>
@@ -86,11 +87,11 @@
                     <mat-hint align="end">{{especMax.value.length}} / 30</mat-hint>
                 </mat-form-field>
             </p>
-            <label for="upload" class="label-upload">Upload<mat-icon class="check-icon">upload</mat-icon></label>
+            <label for="upload" class="label-upload">Upload de fotos<mat-icon class="check-icon">upload</mat-icon></label>
             <input id="upload" type="file" multiple (change)="selecionarArquivos($event)" accept="image/x-png,image/jpeg">    
             <div>
                 <button mat-button matStepperPrevious>Voltar</button>
-                <button mat-button matStepperNext>Próximo</button>
+                <button mat-button matStepperNext [disabled]="!secondFormGroup.valid">Próximo</button>
             </div>
         </form>
     </mat-step>

@@ -26,14 +26,12 @@ export class PerfilUsuarioComponent {
     this.acomodacaoService.listarHospedagemPorIdUsuario().subscribe(
       (acomodacao) => {
         this.listaAcomodacoes = acomodacao;
-        console.log("Hospedagens: ", acomodacao);
       }
     );
 
     this.usuarioService.usuarioPeloId().subscribe(
       (usuario) => {
         this.user = usuario
-        console.log("Usuário", usuario);
       }
     );
   }

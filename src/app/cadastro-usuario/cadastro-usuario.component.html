@@ -5,25 +5,31 @@
       <ng-template matStepLabel>Preencha seus dados</ng-template>
       <mat-form-field class="example-full-width">
         <mat-label>Nome</mat-label>
-        <input type="text" matInput formControlName="nome" placeholder="Nome" required>
+        <input type="text" matInput formControlName="nome" placeholder="Nome" required pattern="[a-zA-Z\s]+">
         <mat-error *ngIf="cadastroForm.get('nome')?.hasError('required')">Nome é obrigatório</mat-error>
+        <mat-error *ngIf="cadastroForm.get('nome')?.hasError('pattern')">Somente letras são permitidas</mat-error>
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Sobrenome</mat-label>
-        <input type="text" matInput formControlName="sobrenome" placeholder="Sobrenome" required>
+        <input type="text" matInput formControlName="sobrenome" placeholder="Sobrenome" required pattern="[a-zA-Z\s]+">
+        <mat-error *ngIf="cadastroForm.get('sobrenome')?.hasError('required')">Sobrenome é obrigatório</mat-error>
+        <mat-error *ngIf="cadastroForm.get('sobrenome')?.hasError('pattern')">Somente letras são permitidas</mat-error>
       </mat-form-field>
       <table class="example-full-width" cellspacing="0"><tr>
         <td>
           <mat-form-field class="example-full-width">
             <mat-label>CPF</mat-label>
-            <input type="text" matInput #cpfCode maxlength="11" formControlName="cpf" placeholder="Somente os números" required>
+            <input type="text" matInput #cpfCode maxlength="14" formControlName="cpf" placeholder="Somente os números" required mask="000.000.000-00">
             <mat-hint align="end">{{cpfCode.value.length}} / 11</mat-hint>
+            <mat-error *ngIf="cadastroForm.get('cpf')?.hasError('required')">CPF é obrigatório</mat-error>
           </mat-form-field>
         </td>
       </tr></table>
       <mat-form-field class="example-full-width">
         <mat-label>E-mail</mat-label>
         <input type="email" matInput formControlName="email" placeholder="email@email..." required>
+        <mat-error *ngIf="cadastroForm.get('email')?.hasError('required')">E-mail é obrigatório</mat-error>
+        <mat-error *ngIf="cadastroForm.get('email')?.hasError('email')">E-mail inválido</mat-error>
       </mat-form-field>
       <table class="example-full-width" cellspacing="0"><tr>
       <td>
@@ -31,6 +37,8 @@
           <mat-label>Senha</mat-label>
           <input type="password" matInput [type]="hidePassword ? 'password' : 'text'" #passCode maxlength="6" minlength="6" formControlName="senha" placeholder="Mínimo 6 caracteres" required>
           <mat-hint align="end">{{passCode.value.length}} / 6</mat-hint>
+          <mat-error *ngIf="cadastroForm.get('senha')?.hasError('required')">Senha é obrigatória</mat-error>
+          <mat-error *ngIf="cadastroForm.get('senha')?.hasError('minlength')">Senha deve ter pelo menos 6 caracteres</mat-error>
           <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.title]="hidePassword ? 'Mostrar senha' : 'Esconder senha'">
             <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
         </button>

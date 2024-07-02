@@ -55,9 +55,6 @@ export class CadastroUsuarioComponent implements OnInit {
         (usuario) => {
           sessionStorage.setItem('usuario.nome', usuario.nome);
           sessionStorage.setItem('usuario.id', usuario.id);
-        },
-        error => {
-          this.errorMessage = 'Verifique os dados informados!';
         }
       );
       }

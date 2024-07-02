@@ -29,9 +29,7 @@ export class DetalhesHospedagemComponent {
       });
     } else {
       this.router.navigate(['/login']);
-    }
-    console.log("info 1",this.info1,typeof(this.info1), "info2",this.info2, typeof(this.info2), "valor", valor, typeof(parseInt(valor)));
-    
+    }   
   }
 
 
