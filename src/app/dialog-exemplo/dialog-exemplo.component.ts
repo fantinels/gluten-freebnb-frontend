@@ -12,7 +12,7 @@ export class DialogExemploComponent {
   constructor(public dialogRef: MatDialogRef<DialogExemploComponent>, public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   whatsApp(): void {
-    const phoneNumber = '555193573642'; // Substitua pelo número de telefone do anfitrião
+    const phoneNumber = '5551999999999'; // Substitua pelo número de telefone do anfitrião
     const message = `Olá, estou interessado em saber mais sobre a reserva.`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
